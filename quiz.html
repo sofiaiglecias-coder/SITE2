@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quiz Acolhe+ sobre respeito, inclusão e diversidade.">
+    <title>Quiz | Acolhe+</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+        <div class="container header-content">
+
+            <a href="index.html" class="logo" aria-label="Acolhe+ - página inicial">
+                <span class="logo-icon">
+                    <i class="fa-solid fa-hands-holding-child"></i>
+                </span>
+
+                <span>
+                    <strong>Acolhe<span>+</span></strong>
+                    <small>Portal de Apoio ao Estudante</small>
+                </span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="mainNav">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i>
+                    Início
+                </a>
+
+                <a href="escuta.html">
+                    <i class="fa-solid fa-heart"></i>
+                    Portal de Escuta
+                </a>
+
+                <a href="quiz.html" class="active">
+                    <i class="fa-solid fa-circle-question"></i>
+                    Quiz
+                </a>
+
+                <a href="referencias.html">
+                    <i class="fa-solid fa-book-open"></i>
+                    Referências
+                </a>
+            </nav>
+
+            <div class="accessibility-tools" aria-label="Controles de acessibilidade">
+                <button id="decreaseFont" class="accessibility-btn" type="button" aria-label="Diminuir tamanho do texto">A-</button>
+                <button id="increaseFont" class="accessibility-btn" type="button" aria-label="Aumentar tamanho do texto">A+</button>
+                <button id="contrastToggle" class="accessibility-btn icon-btn" type="button" aria-label="Ativar alto contraste">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                </button>
+                <button id="darkToggle" class="accessibility-btn icon-btn" type="button" aria-label="Ativar modo escuro">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <main id="conteudo">
+
+        <section class="page-hero">
+            <div class="container page-hero-content reveal">
+                <span class="eyebrow">
+                    <i class="fa-solid fa-brain"></i>
+                    Aprender também é respeitar
+                </span>
+
+                <h1>Quiz: <span>Respeito e Inclusão</span></h1>
+
+                <p>
+                    Responda às cinco perguntas e descubra quanto você já sabe
+                    sobre convivência, respeito e inclusão.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container quiz-container">
+
+                <div class="quiz-intro reveal">
+                    <div class="quiz-intro-icon">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+
+                    <div>
+                        <h2>Vamos começar?</h2>
+                        <p>
+                            Leia cada situação com atenção e escolha a alternativa
+                            que representa uma atitude respeitosa e inclusiva.
+                        </p>
+                    </div>
+                </div>
+
+                <form id="quizForm" class="quiz-form">
+
+                    <!-- PERGUNTA 1 -->
+                    <fieldset class="question-card reveal">
+                        <legend>
+                            <span>01</span>
+                            Qual atitude demonstra respeito às diferenças?
+                        </legend>
+
+                        <div class="options">
+
+                            <label class="option">
+                                <input type="radio" name="question1" value="a">
+                                <span class="option-letter">A</span>
+                                <span>Fazer piadas sobre uma característica de alguém.</span>
+                            </label>
+
+                            <label class="option">
+                                <input type="radio" name="question1" value="b">
+                                <span class="option-letter">B</span>
+                                <span>Ignorar uma pessoa diferente.</span>
+                            </label>
+
+                            <label class="option">
+                                <input type="radio" name="question1" value="c">
+                                <span class="option-letter">C</span>
+                                <span>Respeitar e ouvir a outra pessoa.</span>
+                            </label>
+
+                            <label class="option">
+                                <input type="radio" name="question1" value="d">
+                                <span class="option-letter">D</span>
+                                <span>Excluir alguém do grupo.</span>
+                            </label>
+
+                        </div>
+                    </fieldset>
+
+                    <!-- PERGUNTA 2 -->
+                    <fieldset class="question-card reveal">
+                        <legend>
+                            <span>02</span>
+                            Uma pessoa está sendo excluída de uma atividade por causa de sua aparência. O que seria adequado?
+                        </legend>
+
+                        <div class="options">
+
+                            <label class="option">
+                                <input type="radio" name="question2" value="a">
+                                <span class="option-letter">A</span>
+                                <span>Participar da exclusão para não chamar atenção.</span>
+                            </label>
+
+                            <label class="option">
+                                <input type="radio" name="question2" value="b">
+                                <span class="option-letter">B</span>
+                                <span>Incluir a pessoa e procurar ajuda se a exclusão continuar.</span>
+                            </label>
+
+                            <label class="option">
+                                <input type="radio" name="question2" value="c">
+                                <span class="option-letter">C</span>
+                                <span>Fazer uma piada para deixar a situação mais leve.</span>
+                            </label>
+
+                            <label class="option">
+                                <input type="radio" name="question2" value="d">
+                                <span class="option-letter">D</span>
+                                <span>Ignorar a situação.</span>
+                            </label>
+
+                        </div>
+                    </fieldset>
+
+                    <!-- PERGUNTA 3 -->
+                    <fieldset class="question-card reveal">
+                        <legend>
+                            <span>03</span>
+                            Se você perceber uma situação de bullying, qual atitude pode ajudar?
+                        </legend>
+
+                        <div class="options">
+
+                            <label class="option">
+                                <input type="radio" name="question3" value="a">
+                                <span class="option-letter">A</span>
+                                <span>Filmar e compartilhar a situação.</span>
+                            </label>
+
+                            <label class="option">
+                                <input type="radio" name="question3" value="b">
+                                <span class="option-letter">B</span>
+                                <span>Incentivar quem está praticando a agressão.</span>
+                            </label>
+
+                            <label class="option">
+                                <input type="radio" name="question3" value="c">
+                                <span class="option-letter">C</span>
+                                <span>Ignorar sempre, mesmo quando alguém está sofrendo.</span>
+                            </label>
+
+                            <label class="option">
+                                <input type="radio" name="question3" value="d">
+                                <span class="option-letter">D</span>
+                                <span>Procurar um adulto de confiança e oferecer apoio à pessoa.</span>
+                            </label>
+
+                        </div>
+                    </fieldset>
+
+                    <!-- PERGUNTA 4 -->
+                    <fieldset class="question-card reveal">
+                        <legend>
+                            <span>04</span>
+                            Por que a diversidade é importante na escola?
+                        </legend>
+
+                        <div class="options">
+
+                            <label class="option">
+                                <input type="radio" name="question4" value="a">
+                                <span class="option-letter">A</span>
+                                <span>Porque todas as pessoas precisam ser iguais.</span>
+                            </label>
+
+                            <label class="option">
+                                <input type="radio" name="question4" value="b">
+                                <span class="option-letter">B</span>
+                                <span>Porque diferenças não devem ser discutidas.</span>
+                            </label>
+
+                            <label class="option">
+                                <input type="radio" name="question4" value="c">
+                                <span class="option-letter">C</span>
+                                <span>Porque diferentes experiências e perspectivas podem enriquecer a convivência e a aprendizagem.</span>
+                            </label>
+
+                            <label class="option">
+                                <input type="radio" name="question4" value="d">
+                                <span class="option-letter">D</span>
+                                <span>Porque ajuda a separar os estudantes em grupos.</span>
+                            </label>
+
+                        </div>
+                    </fieldset>
+
+                    <!-- PERGUNTA 5 -->
+                    <fieldset class="question-card reveal">
+                        <legend>
+                            <span>05</span>
+                            Quando uma situação deixa você desconfortável ou inseguro, o que pode fazer?
+                        </legend>
+
+                        <div class="options">
+
+                            <label class="option">
+                                <input type="radio" name="question5" value="a">
+                                <span class="option-letter">A</span>
+                                <span>Guardar tudo sozinho.</span>
+                            </label>
+
+                            <label class="option">
+                                <input type="radio" name="question5" value="b">
+                                <span class="option-letter">B</span>
+                                <span>Procurar um adulto de confiança e pedir ajuda.</span>
+                            </label>
+
+                            <label class="option">
+                                <input type="radio" name="question5" value="c">
+                                <span class="option-letter">C</span>
+                                <span>Fingir que nada aconteceu.</span>
+                            </label>
+
+                            <label class="option">
+                                <input type="radio" name="question5" value="d">
+                                <span class="option-letter">D</span>
+                                <span>Desistir de procurar ajuda.</span>
+                            </label>
+
+                        </div>
+                    </fieldset>
+
+                    <div class="quiz-actions reveal">
+
+                        <button type="submit" class="btn btn-primary">
+                            Ver meu resultado
+                            <i class="fa-solid fa-chart-simple"></i>
+                        </button>
+
+                        <button id="resetQuiz" type="button" class="btn btn-secondary">
+                            Refazer quiz
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </button>
+
+                    </div>
+
+                </form>
+
+                <section
+                    id="quizResult"
+                    class="quiz-result"
+                    aria-live="polite"
+                    hidden>
+                </section>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+
+            <div class="footer-brand">
+                <a href="index.html" class="logo footer-logo">
+                    <span class="logo-icon">
+                        <i class="fa-solid fa-hands-holding-child"></i>
+                    </span>
+
+                    <span>
+                        <strong>Acolhe<span>+</span></strong>
+                        <small>Portal de Apoio ao Estudante</small>
+                    </span>
+                </a>
+
+                <p>
+                    Um projeto educativo sobre inclusão, respeito,
+                    diversidade e acolhimento.
+                </p>
+            </div>
+
+            <div>
+                <h3>Explorar</h3>
+                <a href="index.html">Início</a>
+                <a href="escuta.html">Portal de Escuta</a>
+                <a href="quiz.html">Quiz</a>
+                <a href="referencias.html">Referências</a>
+            </div>
+
+            <div>
+                <h3>Mensagem</h3>
+                <p>
+                    “Respeito e empatia são aprendizados para toda a vida.”
+                </p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2026 Acolhe+ — Projeto educativo sobre inclusão e respeito.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" type="button" aria-label="Voltar ao topo">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal de Apoio ao Estudante — Inclusão, respeito e acolhimento para todos.">
+    <title>Acolhe+ | Portal de Apoio ao Estudante</title>
+
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container header-content">
+
+            <a href="index.html" class="logo" aria-label="Acolhe+ - página inicial">
+                <span class="logo-icon">
+                    <i class="fa-solid fa-hands-holding-child"></i>
+                </span>
+
+                <span>
+                    <strong>Acolhe<span>+</span></strong>
+                    <small>Portal de Apoio ao Estudante</small>
+                </span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="mainNav">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+                <a href="index.html" class="active">
+                    <i class="fa-solid fa-house"></i>
+                    Início
+                </a>
+
+                <a href="escuta.html">
+                    <i class="fa-solid fa-heart"></i>
+                    Portal de Escuta
+                </a>
+
+                <a href="quiz.html">
+                    <i class="fa-solid fa-circle-question"></i>
+                    Quiz
+                </a>
+
+                <a href="referencias.html">
+                    <i class="fa-solid fa-book-open"></i>
+                    Referências
+                </a>
+            </nav>
+
+            <div class="accessibility-tools" aria-label="Controles de acessibilidade">
+                <button id="decreaseFont" class="accessibility-btn" type="button" aria-label="Diminuir tamanho do texto">
+                    A-
+                </button>
+
+                <button id="increaseFont" class="accessibility-btn" type="button" aria-label="Aumentar tamanho do texto">
+                    A+
+                </button>
+
+                <button id="contrastToggle" class="accessibility-btn icon-btn" type="button" aria-label="Ativar alto contraste">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                </button>
+
+                <button id="darkToggle" class="accessibility-btn icon-btn" type="button" aria-label="Ativar modo escuro">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="conteudo">
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-decoration decoration-one"></div>
+            <div class="hero-decoration decoration-two"></div>
+
+            <div class="container hero-grid">
+
+                <div class="hero-text reveal">
+                    <span class="eyebrow">
+                        <i class="fa-solid fa-sparkles"></i>
+                        Um espaço para você
+                    </span>
+
+                    <h1>
+                        Portal de Apoio
+                        <span>ao Estudante</span>
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Inclusão, respeito e acolhimento para todos.
+                    </p>
+
+                    <p class="hero-description">
+                        Cada pessoa é única. Respeitar as diferenças é construir
+                        uma escola onde todos possam se sentir seguros, valorizados
+                        e acolhidos.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#inclusao" class="btn btn-primary">
+                            Quero conhecer o portal
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </a>
+
+                        <a href="escuta.html" class="btn btn-secondary">
+                            Preciso conversar
+                            <i class="fa-solid fa-heart"></i>
+                        </a>
+                    </div>
+
+                    <div class="hero-mini-info">
+                        <span>
+                            <i class="fa-solid fa-shield-heart"></i>
+                            Respeito
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-people-group"></i>
+                            Diversidade
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                            Acolhimento
+                        </span>
+                    </div>
+                </div>
+
+                <div class="hero-visual reveal">
+                    <div class="hero-image-card">
+                        <div class="image-badge badge-top">
+                            <i class="fa-solid fa-heart"></i>
+                            Você importa
+                        </div>
+
+                        <img
+                            src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1000&q=85"
+                            alt="Grupo diverso de estudantes sorrindo e convivendo juntos">
+
+                        <div class="image-badge badge-bottom">
+                            <i class="fa-solid fa-rainbow"></i>
+                            Todos pertencem
+                        </div>
+                    </div>
+
+                    <div class="floating-shape shape-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+
+                    <div class="floating-shape shape-star">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SOBRE -->
+        <section class="section" id="inclusao">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <span class="section-label">Inclusão começa com respeito</span>
+
+                    <h2>O que significa <span>inclusão?</span></h2>
+
+                    <p>
+                        Inclusão significa garantir que todas as pessoas sejam
+                        respeitadas, tenham oportunidades e possam participar
+                        dos espaços sociais e escolares, independentemente de
+                        suas características, origem, aparência, deficiência,
+                        cultura, forma de pensar ou outras diferenças.
+                    </p>
+                </div>
+
+                <div class="feature-grid">
+
+                    <article class="feature-card reveal">
+                        <div class="feature-icon yellow">
+                            <span aria-hidden="true">🤝</span>
+                        </div>
+                        <h3>Respeito</h3>
+                        <p>
+                            Tratar cada pessoa com consideração, reconhecendo
+                            seus direitos, limites e individualidade.
+                        </p>
+                    </article>
+
+                    <article class="feature-card reveal">
+                        <div class="feature-icon pink">
+                            <span aria-hidden="true">💛</span>
+                        </div>
+                        <h3>Empatia</h3>
+                        <p>
+                            Tentar compreender os sentimentos e experiências
+                            de outras pessoas sem julgamentos.
+                        </p>
+                    </article>
+
+                    <article class="feature-card reveal">
+                        <div class="feature-icon purple">
+                            <span aria-hidden="true">🌈</span>
+                        </div>
+                        <h3>Diversidade</h3>
+                        <p>
+                            Entender que as diferenças fazem parte da sociedade
+                            e podem tornar a convivência mais rica.
+                        </p>
+                    </article>
+
+                    <article class="feature-card reveal">
+                        <div class="feature-icon coral">
+                            <span aria-hidden="true">🫶</span>
+                        </div>
+                        <h3>Acolhimento</h3>
+                        <p>
+                            Criar ambientes onde as pessoas possam se sentir
+                            seguras, ouvidas, valorizadas e pertencentes.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- RESPEITO -->
+        <section class="section section-soft" id="respeito">
+            <div class="container">
+
+                <div class="split-heading reveal">
+                    <div>
+                        <span class="section-label">Pequenas atitudes, grandes mudanças</span>
+                        <h2>Respeito faz a <span>diferença</span></h2>
+                    </div>
+
+                    <p>
+                        Uma convivência saudável é construída diariamente.
+                        Veja algumas atitudes que podem tornar a escola um
+                        espaço mais acolhedor.
+                    </p>
+                </div>
+
+                <div class="respect-list">
+
+                    <div class="respect-item reveal">
+                        <div class="respect-number">01</div>
+                        <div class="respect-icon"><i class="fa-solid fa-ear-listen"></i></div>
+                        <div>
+                            <h3>Escutar sem julgar</h3>
+                            <p>Dar espaço para que a outra pessoa fale e seja ouvida.</p>
+                        </div>
+                        <i class="fa-solid fa-check respect-check"></i>
+                    </div>
+
+                    <div class="respect-item reveal">
+                        <div class="respect-number">02</div>
+                        <div class="respect-icon"><i class="fa-solid fa-comments"></i></div>
+                        <div>
+                            <h3>Respeitar opiniões diferentes</h3>
+                            <p>Discordar faz parte da convivência, mas o respeito deve permanecer.</p>
+                        </div>
+                        <i class="fa-solid fa-check respect-check"></i>
+                    </div>
+
+                    <div class="respect-item reveal">
+                        <div class="respect-number">03</div>
+                        <div class="respect-icon"><i class="fa-solid fa-face-smile"></i></div>
+                        <div>
+                            <h3>Evitar piadas ofensivas</h3>
+                            <p>Características pessoais não devem ser motivo de humilhação.</p>
+                        </div>
+                        <i class="fa-solid fa-check respect-check"></i>
+                    </div>
+
+                    <div class="respect-item reveal">
+                        <div class="respect-number">04</div>
+                        <div class="respect-icon"><i class="fa-solid fa-hands-helping"></i></div>
+                        <div>
+                            <h3>Ajudar quem precisa</h3>
+                            <p>Uma atitude de apoio pode fazer uma grande diferença no dia de alguém.</p>
+                        </div>
+                        <i class="fa-solid fa-check respect-check"></i>
+                    </div>
+
+                    <div class="respect-item reveal">
+                        <div class="respect-number">05</div>
+                        <div class="respect-icon"><i class="fa-solid fa-ban"></i></div>
+                        <div>
+                            <h3>Combater o preconceito</h3>
+                            <p>Não apoiar atitudes discriminatórias e procurar ajuda quando necessário.</p>
+                        </div>
+                        <i class="fa-solid fa-check respect-check"></i>
+                    </div>
+
+                    <div class="respect-item reveal">
+                        <div class="respect-number">06</div>
+                        <div class="respect-icon"><i class="fa-solid fa-person-chalkboard"></i></div>
+                        <div>
+                            <h3>Procurar um adulto de confiança</h3>
+                            <p>Compartilhar uma situação difícil é uma forma importante de buscar apoio.</p>
+                        </div>
+                        <i class="fa-solid fa-check respect-check"></i>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CARROSSEL -->
+        <section class="section" id="carrossel">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <span class="section-label">Juntos somos diferentes</span>
+                    <h2>Um espaço onde <span>todos pertencem</span></h2>
+                </div>
+
+                <div class="carousel reveal" aria-label="Carrossel sobre diversidade e inclusão">
+
+                    <div class="carousel-track">
+
+                        <article class="carousel-slide active">
+                            <img
+                                src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1400&q=85"
+                                alt="Amigos diversos reunidos e sorrindo">
+                            <div class="carousel-caption">
+                                <span>01</span>
+                                <div>
+                                    <h3>Amizade</h3>
+                                    <p>Construir vínculos baseados em respeito e confiança.</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="carousel-slide">
+                            <img
+                                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=85"
+                                alt="Estudantes estudando juntos">
+                            <div class="carousel-caption">
+                                <span>02</span>
+                                <div>
+                                    <h3>Aprender juntos</h3>
+                                    <p>A diversidade também transforma nossa forma de aprender.</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="carousel-slide">
+                            <img
+                                src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1400&q=85"
+                                alt="Estudante sorrindo em ambiente educacional">
+                            <div class="carousel-caption">
+                                <span>03</span>
+                                <div>
+                                    <h3>Acolhimento</h3>
+                                    <p>Todos merecem sentir que fazem parte da comunidade escolar.</p>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <button class="carousel-btn carousel-prev" id="carouselPrev" type="button" aria-label="Imagem anterior">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <button class="carousel-btn carousel-next" id="carouselNext" type="button" aria-label="Próxima imagem">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <div class="carousel-indicators" aria-label="Selecionar imagem">
+                        <button class="carousel-dot active" type="button" aria-label="Ir para imagem 1"></button>
+                        <button class="carousel-dot" type="button" aria-label="Ir para imagem 2"></button>
+                        <button class="carousel-dot" type="button" aria-label="Ir para imagem 3"></button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container cta-content reveal">
+                <div>
+                    <span class="section-label">Você não precisa enfrentar tudo sozinho</span>
+                    <h2>Quer conversar ou aprender mais?</h2>
+                    <p>
+                        Explore o Portal de Escuta ou teste seus conhecimentos
+                        no Quiz sobre Respeito e Inclusão.
+                    </p>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="escuta.html" class="btn btn-light">
+                        Portal de Escuta
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+
+                    <a href="quiz.html" class="btn btn-outline-light">
+                        Fazer o Quiz
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+
+            <div class="footer-brand">
+                <a href="index.html" class="logo footer-logo">
+                    <span class="logo-icon">
+                        <i class="fa-solid fa-hands-holding-child"></i>
+                    </span>
+
+                    <span>
+                        <strong>Acolhe<span>+</span></strong>
+                        <small>Portal de Apoio ao Estudante</small>
+                    </span>
+                </a>
+
+                <p>
+                    Um projeto educativo sobre inclusão, respeito,
+                    diversidade e acolhimento.
+                </p>
+            </div>
+
+            <div>
+                <h3>Explorar</h3>
+                <a href="index.html">Início</a>
+                <a href="escuta.html">Portal de Escuta</a>
+                <a href="quiz.html">Quiz</a>
+                <a href="referencias.html">Referências</a>
+            </div>
+
+            <div>
+                <h3>Mensagem</h3>
+                <p>
+                    “Suas diferenças fazem parte de quem você é.”
+                </p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>
+                    © 2026 Acolhe+ — Projeto educativo sobre inclusão e respeito.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <button
+        id="backToTop"
+        class="back-to-top"
+        type="button"
+        aria-label="Voltar ao topo">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="js/script.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal de Apoio ao Estudante — Inclusão, respeito e acolhimento para todos.">
+    <title>Acolhe+ | Portal de Apoio ao Estudante</title>
+
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container header-content">
+
+            <a href="index.html" class="logo" aria-label="Acolhe+ - página inicial">
+                <span class="logo-icon">
+                    <i class="fa-solid fa-hands-holding-child"></i>
+                </span>
+
+                <span>
+                    <strong>Acolhe<span>+</span></strong>
+                    <small>Portal de Apoio ao Estudante</small>
+                </span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="mainNav">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+                <a href="index.html" class="active">
+                    <i class="fa-solid fa-house"></i>
+                    Início
+                </a>
+
+                <a href="escuta.html">
+                    <i class="fa-solid fa-heart"></i>
+                    Portal de Escuta
+                </a>
+
+                <a href="quiz.html">
+                    <i class="fa-solid fa-circle-question"></i>
+                    Quiz
+                </a>
+
+                <a href="referencias.html">
+                    <i class="fa-solid fa-book-open"></i>
+                    Referências
+                </a>
+            </nav>
+
+            <div class="accessibility-tools" aria-label="Controles de acessibilidade">
+                <button id="decreaseFont" class="accessibility-btn" type="button" aria-label="Diminuir tamanho do texto">
+                    A-
+                </button>
+
+                <button id="increaseFont" class="accessibility-btn" type="button" aria-label="Aumentar tamanho do texto">
+                    A+
+                </button>
+
+                <button id="contrastToggle" class="accessibility-btn icon-btn" type="button" aria-label="Ativar alto contraste">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                </button>
+
+                <button id="darkToggle" class="accessibility-btn icon-btn" type="button" aria-label="Ativar modo escuro">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="conteudo">
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-decoration decoration-one"></div>
+            <div class="hero-decoration decoration-two"></div>
+
+            <div class="container hero-grid">
+
+                <div class="hero-text reveal">
+                    <span class="eyebrow">
+                        <i class="fa-solid fa-sparkles"></i>
+                        Um espaço para você
+                    </span>
+
+                    <h1>
+                        Portal de Apoio
+                        <span>ao Estudante</span>
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Inclusão, respeito e acolhimento para todos.
+                    </p>
+
+                    <p class="hero-description">
+                        Cada pessoa é única. Respeitar as diferenças é construir
+                        uma escola onde todos possam se sentir seguros, valorizados
+                        e acolhidos.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#inclusao" class="btn btn-primary">
+                            Quero conhecer o portal
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </a>
+
+                        <a href="escuta.html" class="btn btn-secondary">
+                            Preciso conversar
+                            <i class="fa-solid fa-heart"></i>
+                        </a>
+                    </div>
+
+                    <div class="hero-mini-info">
+                        <span>
+                            <i class="fa-solid fa-shield-heart"></i>
+                            Respeito
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-people-group"></i>
+                            Diversidade
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                            Acolhimento
+                        </span>
+                    </div>
+                </div>
+
+                <div class="hero-visual reveal">
+                    <div class="hero-image-card">
+                        <div class="image-badge badge-top">
+                            <i class="fa-solid fa-heart"></i>
+                            Você importa
+                        </div>
+
+                        <img
+                            src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1000&q=85"
+                            alt="Grupo diverso de estudantes sorrindo e convivendo juntos">
+
+                        <div class="image-badge badge-bottom">
+                            <i class="fa-solid fa-rainbow"></i>
+                            Todos pertencem
+                        </div>
+                    </div>
+
+                    <div class="floating-shape shape-heart">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+
+                    <div class="floating-shape shape-star">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SOBRE -->
+        <section class="section" id="inclusao">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <span class="section-label">Inclusão começa com respeito</span>
+
+                    <h2>O que significa <span>inclusão?</span></h2>
+
+                    <p>
+                        Inclusão significa garantir que todas as pessoas sejam
+                        respeitadas, tenham oportunidades e possam participar
+                        dos espaços sociais e escolares, independentemente de
+                        suas características, origem, aparência, deficiência,
+                        cultura, forma de pensar ou outras diferenças.
+                    </p>
+                </div>
+
+                <div class="feature-grid">
+
+                    <article class="feature-card reveal">
+                        <div class="feature-icon yellow">
+                            <span aria-hidden="true">🤝</span>
+                        </div>
+                        <h3>Respeito</h3>
+                        <p>
+                            Tratar cada pessoa com consideração, reconhecendo
+                            seus direitos, limites e individualidade.
+                        </p>
+                    </article>
+
+                    <article class="feature-card reveal">
+                        <div class="feature-icon pink">
+                            <span aria-hidden="true">💛</span>
+                        </div>
+                        <h3>Empatia</h3>
+                        <p>
+                            Tentar compreender os sentimentos e experiências
+                            de outras pessoas sem julgamentos.
+                        </p>
+                    </article>
+
+                    <article class="feature-card reveal">
+                        <div class="feature-icon purple">
+                            <span aria-hidden="true">🌈</span>
+                        </div>
+                        <h3>Diversidade</h3>
+                        <p>
+                            Entender que as diferenças fazem parte da sociedade
+                            e podem tornar a convivência mais rica.
+                        </p>
+                    </article>
+
+                    <article class="feature-card reveal">
+                        <div class="feature-icon coral">
+                            <span aria-hidden="true">🫶</span>
+                        </div>
+                        <h3>Acolhimento</h3>
+                        <p>
+                            Criar ambientes onde as pessoas possam se sentir
+                            seguras, ouvidas, valorizadas e pertencentes.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- RESPEITO -->
+        <section class="section section-soft" id="respeito">
+            <div class="container">
+
+                <div class="split-heading reveal">
+                    <div>
+                        <span class="section-label">Pequenas atitudes, grandes mudanças</span>
+                        <h2>Respeito faz a <span>diferença</span></h2>
+                    </div>
+
+                    <p>
+                        Uma convivência saudável é construída diariamente.
+                        Veja algumas atitudes que podem tornar a escola um
+                        espaço mais acolhedor.
+                    </p>
+                </div>
+
+                <div class="respect-list">
+
+                    <div class="respect-item reveal">
+                        <div class="respect-number">01</div>
+                        <div class="respect-icon"><i class="fa-solid fa-ear-listen"></i></div>
+                        <div>
+                            <h3>Escutar sem julgar</h3>
+                            <p>Dar espaço para que a outra pessoa fale e seja ouvida.</p>
+                        </div>
+                        <i class="fa-solid fa-check respect-check"></i>
+                    </div>
+
+                    <div class="respect-item reveal">
+                        <div class="respect-number">02</div>
+                        <div class="respect-icon"><i class="fa-solid fa-comments"></i></div>
+                        <div>
+                            <h3>Respeitar opiniões diferentes</h3>
+                            <p>Discordar faz parte da convivência, mas o respeito deve permanecer.</p>
+                        </div>
+                        <i class="fa-solid fa-check respect-check"></i>
+                    </div>
+
+                    <div class="respect-item reveal">
+                        <div class="respect-number">03</div>
+                        <div class="respect-icon"><i class="fa-solid fa-face-smile"></i></div>
+                        <div>
+                            <h3>Evitar piadas ofensivas</h3>
+                            <p>Características pessoais não devem ser motivo de humilhação.</p>
+                        </div>
+                        <i class="fa-solid fa-check respect-check"></i>
+                    </div>
+
+                    <div class="respect-item reveal">
+                        <div class="respect-number">04</div>
+                        <div class="respect-icon"><i class="fa-solid fa-hands-helping"></i></div>
+                        <div>
+                            <h3>Ajudar quem precisa</h3>
+                            <p>Uma atitude de apoio pode fazer uma grande diferença no dia de alguém.</p>
+                        </div>
+                        <i class="fa-solid fa-check respect-check"></i>
+                    </div>
+
+                    <div class="respect-item reveal">
+                        <div class="respect-number">05</div>
+                        <div class="respect-icon"><i class="fa-solid fa-ban"></i></div>
+                        <div>
+                            <h3>Combater o preconceito</h3>
+                            <p>Não apoiar atitudes discriminatórias e procurar ajuda quando necessário.</p>
+                        </div>
+                        <i class="fa-solid fa-check respect-check"></i>
+                    </div>
+
+                    <div class="respect-item reveal">
+                        <div class="respect-number">06</div>
+                        <div class="respect-icon"><i class="fa-solid fa-person-chalkboard"></i></div>
+                        <div>
+                            <h3>Procurar um adulto de confiança</h3>
+                            <p>Compartilhar uma situação difícil é uma forma importante de buscar apoio.</p>
+                        </div>
+                        <i class="fa-solid fa-check respect-check"></i>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CARROSSEL -->
+        <section class="section" id="carrossel">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <span class="section-label">Juntos somos diferentes</span>
+                    <h2>Um espaço onde <span>todos pertencem</span></h2>
+                </div>
+
+                <div class="carousel reveal" aria-label="Carrossel sobre diversidade e inclusão">
+
+                    <div class="carousel-track">
+
+                        <article class="carousel-slide active">
+                            <img
+                                src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1400&q=85"
+                                alt="Amigos diversos reunidos e sorrindo">
+                            <div class="carousel-caption">
+                                <span>01</span>
+                                <div>
+                                    <h3>Amizade</h3>
+                                    <p>Construir vínculos baseados em respeito e confiança.</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="carousel-slide">
+                            <img
+                                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=85"
+                                alt="Estudantes estudando juntos">
+                            <div class="carousel-caption">
+                                <span>02</span>
+                                <div>
+                                    <h3>Aprender juntos</h3>
+                                    <p>A diversidade também transforma nossa forma de aprender.</p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="carousel-slide">
+                            <img
+                                src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1400&q=85"
+                                alt="Estudante sorrindo em ambiente educacional">
+                            <div class="carousel-caption">
+                                <span>03</span>
+                                <div>
+                                    <h3>Acolhimento</h3>
+                                    <p>Todos merecem sentir que fazem parte da comunidade escolar.</p>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <button class="carousel-btn carousel-prev" id="carouselPrev" type="button" aria-label="Imagem anterior">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <button class="carousel-btn carousel-next" id="carouselNext" type="button" aria-label="Próxima imagem">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <div class="carousel-indicators" aria-label="Selecionar imagem">
+                        <button class="carousel-dot active" type="button" aria-label="Ir para imagem 1"></button>
+                        <button class="carousel-dot" type="button" aria-label="Ir para imagem 2"></button>
+                        <button class="carousel-dot" type="button" aria-label="Ir para imagem 3"></button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container cta-content reveal">
+                <div>
+                    <span class="section-label">Você não precisa enfrentar tudo sozinho</span>
+                    <h2>Quer conversar ou aprender mais?</h2>
+                    <p>
+                        Explore o Portal de Escuta ou teste seus conhecimentos
+                        no Quiz sobre Respeito e Inclusão.
+                    </p>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="escuta.html" class="btn btn-light">
+                        Portal de Escuta
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+
+                    <a href="quiz.html" class="btn btn-outline-light">
+                        Fazer o Quiz
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+
+            <div class="footer-brand">
+                <a href="index.html" class="logo footer-logo">
+                    <span class="logo-icon">
+                        <i class="fa-solid fa-hands-holding-child"></i>
+                    </span>
+
+                    <span>
+                        <strong>Acolhe<span>+</span></strong>
+                        <small>Portal de Apoio ao Estudante</small>
+                    </span>
+                </a>
+
+                <p>
+                    Um projeto educativo sobre inclusão, respeito,
+                    diversidade e acolhimento.
+                </p>
+            </div>
+
+            <div>
+                <h3>Explorar</h3>
+                <a href="index.html">Início</a>
+                <a href="escuta.html">Portal de Escuta</a>
+                <a href="quiz.html">Quiz</a>
+                <a href="referencias.html">Referências</a>
+            </div>
+
+            <div>
+                <h3>Mensagem</h3>
+                <p>
+                    “Suas diferenças fazem parte de quem você é.”
+                </p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>
+                    © 2026 Acolhe+ — Projeto educativo sobre inclusão e respeito.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <button
+        id="backToTop"
+        class="back-to-top"
+        type="button"
+        aria-label="Voltar ao topo">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

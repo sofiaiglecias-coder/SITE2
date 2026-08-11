@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal de Escuta Acolhe+ — espaço simulado de acolhimento ao estudante.">
+    <title>Portal de Escuta | Acolhe+</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+        <div class="container header-content">
+
+            <a href="index.html" class="logo" aria-label="Acolhe+ - página inicial">
+                <span class="logo-icon">
+                    <i class="fa-solid fa-hands-holding-child"></i>
+                </span>
+                <span>
+                    <strong>Acolhe<span>+</span></strong>
+                    <small>Portal de Apoio ao Estudante</small>
+                </span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="mainNav">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i>
+                    Início
+                </a>
+
+                <a href="escuta.html" class="active">
+                    <i class="fa-solid fa-heart"></i>
+                    Portal de Escuta
+                </a>
+
+                <a href="quiz.html">
+                    <i class="fa-solid fa-circle-question"></i>
+                    Quiz
+                </a>
+
+                <a href="referencias.html">
+                    <i class="fa-solid fa-book-open"></i>
+                    Referências
+                </a>
+            </nav>
+
+            <div class="accessibility-tools" aria-label="Controles de acessibilidade">
+                <button id="decreaseFont" class="accessibility-btn" type="button" aria-label="Diminuir tamanho do texto">A-</button>
+                <button id="increaseFont" class="accessibility-btn" type="button" aria-label="Aumentar tamanho do texto">A+</button>
+                <button id="contrastToggle" class="accessibility-btn icon-btn" type="button" aria-label="Ativar alto contraste">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                </button>
+                <button id="darkToggle" class="accessibility-btn icon-btn" type="button" aria-label="Ativar modo escuro">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="conteudo">
+
+        <!-- PAGE HERO -->
+        <section class="page-hero">
+            <div class="container page-hero-content reveal">
+                <span class="eyebrow">
+                    <i class="fa-solid fa-heart"></i>
+                    Um espaço de acolhimento
+                </span>
+
+                <h1>Portal de <span>Escuta</span></h1>
+
+                <p>
+                    Às vezes precisamos colocar nossos sentimentos para fora.
+                    Este espaço é apenas uma simulação para você escrever o que está sentindo.
+                </p>
+            </div>
+        </section>
+
+        <!-- ESCUTA -->
+        <section class="section">
+            <div class="container">
+
+                <div class="listening-layout">
+
+                    <div class="listening-info reveal">
+                        <span class="section-label">Você pode falar</span>
+
+                        <h2>
+                            Seus sentimentos
+                            <span>importam.</span>
+                        </h2>
+
+                        <p>
+                            Escrever pode ajudar a organizar aquilo que estamos
+                            sentindo. Aqui, você pode experimentar esse exercício
+                            de forma segura e totalmente simulada.
+                        </p>
+
+                        <div class="simulation-notice">
+                            <i class="fa-solid fa-circle-info"></i>
+
+                            <div>
+                                <strong>Importante</strong>
+                                <p>
+                                    Este formulário é somente uma simulação.
+                                    Nenhuma informação é salva, enviada ou armazenada.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="quote-card">
+                            <i class="fa-solid fa-quote-left"></i>
+                            <p>
+                                “Pedir ajuda é um ato de coragem.”
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="listening-form-card reveal">
+
+                        <div class="form-heading">
+                            <div class="form-icon">
+                                <i class="fa-solid fa-pen"></i>
+                            </div>
+
+                            <div>
+                                <h2>Quer escrever?</h2>
+                                <p>Coloque seus pensamentos em palavras.</p>
+                            </div>
+                        </div>
+
+                        <form id="listeningForm" novalidate>
+
+                            <div class="form-group">
+                                <label for="studentName">
+                                    Nome
+                                    <span>(opcional)</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="studentName"
+                                    name="studentName"
+                                    placeholder="Como podemos chamar você?">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ventMessage">
+                                    Seu desabafo
+                                </label>
+
+                                <textarea
+                                    id="ventMessage"
+                                    name="ventMessage"
+                                    rows="8"
+                                    required
+                                    placeholder="Escreva aqui o que você está sentindo..."></textarea>
+
+                                <small>
+                                    Este texto será apagado quando você enviar.
+                                </small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary full-width">
+                                Enviar desabafo
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+
+                            <div
+                                id="listeningFeedback"
+                                class="feedback-message"
+                                role="status"
+                                aria-live="polite">
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- VOCÊ NÃO ESTÁ SOZINHO -->
+        <section class="section section-soft">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <span class="section-label">Uma lembrança importante</span>
+                    <h2>Você não está <span>sozinho</span></h2>
+                    <p>
+                        Existem pessoas que podem ouvir você e ajudar a encontrar
+                        caminhos quando alguma situação estiver difícil.
+                    </p>
+                </div>
+
+                <div class="motivation-grid">
+
+                    <article class="motivation-card reveal">
+                        <div class="motivation-icon yellow">
+                            <i class="fa-solid fa-hand-fist"></i>
+                        </div>
+                        <h3>Pedir ajuda é coragem</h3>
+                        <p>
+                            Reconhecer que precisamos de apoio é uma atitude de força,
+                            não de fraqueza.
+                        </p>
+                    </article>
+
+                    <article class="motivation-card reveal">
+                        <div class="motivation-icon pink">
+                            <i class="fa-solid fa-shield-heart"></i>
+                        </div>
+                        <h3>Você merece respeito</h3>
+                        <p>
+                            Ninguém deve ser humilhado, discriminado ou desrespeitado
+                            por ser quem é.
+                        </p>
+                    </article>
+
+                    <article class="motivation-card reveal">
+                        <div class="motivation-icon purple">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <h3>Falar pode ajudar</h3>
+                        <p>
+                            Conversar com alguém de confiança pode ser o primeiro
+                            passo para encontrar apoio.
+                        </p>
+                    </article>
+
+                    <article class="motivation-card reveal">
+                        <div class="motivation-icon coral">
+                            <i class="fa-solid fa-rainbow"></i>
+                        </div>
+                        <h3>Suas diferenças importam</h3>
+                        <p>
+                            Suas características, experiências e jeito de ser
+                            fazem parte da sua história.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- QUANDO PROCURAR AJUDA -->
+        <section class="section">
+            <div class="container">
+
+                <div class="help-box reveal">
+
+                    <div class="help-content">
+                        <span class="section-label">Não enfrente sozinho</span>
+
+                        <h2>Quando procurar <span>ajuda?</span></h2>
+
+                        <p>
+                            Se uma situação estiver causando sofrimento, medo,
+                            humilhação ou sensação de insegurança, converse com
+                            alguém de confiança.
+                        </p>
+
+                        <div class="help-list">
+
+                            <div>
+                                <i class="fa-solid fa-check"></i>
+                                <span>Professor ou professora</span>
+                            </div>
+
+                            <div>
+                                <i class="fa-solid fa-check"></i>
+                                <span>Pedagogo ou equipe escolar</span>
+                            </div>
+
+                            <div>
+                                <i class="fa-solid fa-check"></i>
+                                <span>Direção da escola</span>
+                            </div>
+
+                            <div>
+                                <i class="fa-solid fa-check"></i>
+                                <span>Familiares ou responsáveis</span>
+                            </div>
+
+                            <div>
+                                <i class="fa-solid fa-check"></i>
+                                <span>Psicólogo ou profissional especializado</span>
+                            </div>
+
+                            <div>
+                                <i class="fa-solid fa-check"></i>
+                                <span>Outro adulto de confiança</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="help-visual">
+                        <div class="help-circle">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="important-alert reveal">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    <div>
+                        <strong>Se você estiver em uma situação de risco</strong>
+
+                        <p>
+                            Se você estiver passando por uma situação que cause medo,
+                            sofrimento, humilhação ou sensação de insegurança, procure
+                            um adulto de confiança e peça ajuda.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+
+            <div class="footer-brand">
+                <a href="index.html" class="logo footer-logo">
+                    <span class="logo-icon">
+                        <i class="fa-solid fa-hands-holding-child"></i>
+                    </span>
+
+                    <span>
+                        <strong>Acolhe<span>+</span></strong>
+                        <small>Portal de Apoio ao Estudante</small>
+                    </span>
+                </a>
+
+                <p>
+                    Um projeto educativo sobre inclusão, respeito,
+                    diversidade e acolhimento.
+                </p>
+            </div>
+
+            <div>
+                <h3>Explorar</h3>
+                <a href="index.html">Início</a>
+                <a href="escuta.html">Portal de Escuta</a>
+                <a href="quiz.html">Quiz</a>
+                <a href="referencias.html">Referências</a>
+            </div>
+
+            <div>
+                <h3>Mensagem</h3>
+                <p>
+                    “Você merece ser ouvido e respeitado.”
+                </p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2026 Acolhe+ — Projeto educativo sobre inclusão e respeito.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" type="button" aria-label="Voltar ao topo">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
