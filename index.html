@@ -1,128 +1,295 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="default" data-font-family="inter">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portal de Apoio ao Estudante - Inclusão & Respeito</title>
-  <!-- Ícones do Font Awesome -->
+  <title>AcolheEscola — Portal de Apoio ao Estudante</title>
+  
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="animations-enabled">
 
-  <!-- Barra de Acessibilidade & Cabeçalho -->
-  <header>
-    <div class="accessibility-bar">
-      <span>Acessibilidade:</span>
-      <button id="btn-font-toggle" title="Aumentar Fonte"><i class="fa-solid fa-font"></i> +A</button>
-      <button id="btn-contrast-toggle" title="Alto Contraste"><i class="fa-solid fa-circle-half-stroke"></i> Alto Contraste</button>
-      <button id="btn-dark-toggle" title="Modo Escuro"><i class="fa-solid fa-moon"></i> Modo Escuro</button>
-    </div>
+  <!-- Cabeçalho Principal -->
+  <header class="header">
+    <div class="header-container">
+      <a href="#inicio" class="logo">
+        <div class="logo-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <div class="logo-text">Acolhe<span>Escola</span></div>
+      </a>
 
-    <div class="header-main">
-      <div class="logo">
-        <i class="fa-solid fa-hand-holding-heart"></i>
-        <h1>Acolhe<span>Escola</span></h1>
-      </div>
-      <nav>
+      <nav class="nav-desktop">
         <ul>
           <li><a href="#inicio" class="nav-link active"><i class="fa-solid fa-house"></i> Início</a></li>
           <li><a href="#escuta" class="nav-link"><i class="fa-solid fa-comments"></i> Portal de Escuta</a></li>
-          <li><a href="#quiz" class="nav-link"><i class="fa-solid fa-lightbulb"></i> Quiz Interativo</a></li>
+          <li><a href="#quiz" class="nav-link"><i class="fa-solid fa-lightbulb"></i> Quiz</a></li>
           <li><a href="#referencias" class="nav-link"><i class="fa-solid fa-book-bookmark"></i> Referências</a></li>
         </ul>
       </nav>
+
+      <div class="header-actions">
+        <button id="btn-open-settings" class="btn-settings" title="Painel de Personalização e Configurações">
+          <i class="fa-solid fa-gear"></i>
+          <span class="btn-settings-label">Personalizar</span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main>
+  <!-- Modal / Painel de Personalização & Configurações -->
+  <div id="settings-modal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <i class="fa-solid fa-sliders"></i>
+          <h3>Painel de Configurações</h3>
+        </div>
+        <button id="btn-close-settings" class="btn-icon" aria-label="Fechar configurações">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        
+        <!-- Tema de Cores -->
+        <div class="setting-group">
+          <label class="setting-label"><i class="fa-solid fa-palette"></i> Temas Visuais</label>
+          <div class="theme-options">
+            <button class="theme-btn active" data-set-theme="default">
+              <span class="color-preview preview-default"></span> Padrão Azul
+            </button>
+            <button class="theme-btn" data-set-theme="purple">
+              <span class="color-preview preview-purple"></span> Roxo Moderno
+            </button>
+            <button class="theme-btn" data-set-theme="mint">
+              <span class="color-preview preview-mint"></span> Verde Mente
+            </button>
+            <button class="theme-btn" data-set-theme="dark">
+              <span class="color-preview preview-dark"></span> Dark OLED
+            </button>
+          </div>
+        </div>
+
+        <!-- Acessibilidade: Alto Contraste -->
+        <div class="setting-group">
+          <div class="setting-row">
+            <div>
+              <label class="setting-label"><i class="fa-solid fa-eye"></i> Alto Contraste</label>
+              <p class="setting-desc">Aumenta o contraste visual para melhor leitura.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="toggle-contrast">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Tamanho da Fonte -->
+        <div class="setting-group">
+          <label class="setting-label"><i class="fa-solid fa-text-height"></i> Tamanho do Texto</label>
+          <div class="font-size-controls">
+            <button id="btn-font-dec" class="btn-secondary"><i class="fa-solid fa-minus"></i> A-</button>
+            <span id="font-size-display">100%</span>
+            <button id="btn-font-inc" class="btn-secondary"><i class="fa-solid fa-plus"></i> A+</button>
+            <button id="btn-font-reset" class="btn-subtle">Resetar</button>
+          </div>
+        </div>
+
+        <!-- Tipografia / Estilo de Fonte -->
+        <div class="setting-group">
+          <label class="setting-label"><i class="fa-solid fa-font"></i> Estilo da Fonte</label>
+          <div class="font-family-options">
+            <button class="font-btn active" data-set-font="inter">Inter (Padrão)</button>
+            <button class="font-btn" data-set-font="poppins">Poppins</button>
+            <button class="font-btn" data-set-font="roboto">Roboto</button>
+          </div>
+        </div>
+
+        <!-- Animações -->
+        <div class="setting-group">
+          <div class="setting-row">
+            <div>
+              <label class="setting-label"><i class="fa-solid fa-wand-magic-sparkles"></i> Animações Visuais</label>
+              <p class="setting-desc">Ativa ou desativa os efeitos de transição do site.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="toggle-animations" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button id="btn-save-settings" class="btn-primary w-full">Concluído</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="main-content">
 
     <!-- 1. PÁGINA INICIAL -->
     <section id="inicio" class="page-section active">
-      <div class="hero">
-        <div class="hero-content">
-          <span class="badge">Inclusão e Respeito às Diferenças</span>
-          <h2>Bem-vindo ao Portal de Apoio ao Estudante</h2>
-          <p class="welcome-msg">
-            Aqui você encontrará informações, orientações e apoio sobre situações vivenciadas no ambiente escolar. Nossa missão é criar um espaço seguro, empático e acolhedor para todas as pessoas.
-          </p>
-          <a href="#escuta" class="btn-primary start-nav">Precisa conversar? Acesse a Escuta</a>
-        </div>
+      <div class="hero-card">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <span class="chip"><i class="fa-solid fa-star"></i> Inclusão & Respeito</span>
+            <h2>Construindo uma comunidade escolar onde todos têm voz.</h2>
+            <p class="welcome-msg">
+              Bem-vindo ao Portal de Apoio ao Estudante. Este espaço foi planejado para promover a empatia, combater a discriminação e oferecer apoio seguro a quem precisa.
+            </p>
+            <div class="hero-buttons">
+              <a href="#escuta" class="btn-primary start-nav"><i class="fa-solid fa-heart"></i> Acessar Espaço de Escuta</a>
+              <a href="#quiz" class="btn-secondary start-nav"><i class="fa-solid fa-gamepad"></i> Testar Conhecimentos</a>
+            </div>
+          </div>
 
-        <!-- Carrossel de Imagens -->
-        <div class="carousel-container">
-          <div class="carousel-slide active">
-            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80" alt="Grupo de estudantes sorrindo juntos em diversidade">
-            <div class="carousel-caption">Promovendo a empatia e a convivência saudável.</div>
+          <!-- Carrossel Interativo Profissional -->
+          <div class="carousel-wrapper">
+            <div class="carousel">
+              <div class="slide active">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1000&q=80" alt="Estudantes em ambiente acolhedor">
+                <div class="slide-overlay">
+                  <h4>Promovendo a Convivência Saudável</h4>
+                  <p>Acolher as diferenças transforma nosso aprendizado.</p>
+                </div>
+              </div>
+              <div class="slide">
+                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1000&q=80" alt="Grupo diversificado trabalhando em equipe">
+                <div class="slide-overlay">
+                  <h4>Inclusão é um Trabalho Coletivo</h4>
+                  <p>Cada pessoa contribui de forma única para nossa comunidade.</p>
+                </div>
+              </div>
+              <div class="slide">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=80" alt="Jovens conversando abertamente">
+                <div class="slide-overlay">
+                  <h4>Você nunca está sozinho</h4>
+                  <p>Sempre há profissionais e colegas prontos para apoiar você.</p>
+                </div>
+              </div>
+            </div>
+            
+            <button class="carousel-control prev" aria-label="Slide anterior"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="carousel-control next" aria-label="Próximo slide"><i class="fa-solid fa-chevron-right"></i></button>
+            
+            <div class="carousel-indicators">
+              <span class="indicator active" data-index="0"></span>
+              <span class="indicator" data-index="1"></span>
+              <span class="indicator" data-index="2"></span>
+            </div>
           </div>
-          <div class="carousel-slide">
-            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" alt="Alunos estudando em equipe na sala de aula">
-            <div class="carousel-caption">Respeitar as diferenças nos fortalece.</div>
-          </div>
-          <div class="carousel-slide">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Jovens conversando no pátio da escola">
-            <div class="carousel-caption">Nenhum estudante precisa estar sozinho.</div>
-          </div>
-          <button class="prev-btn" aria-label="Slide anterior">&#10094;</button>
-          <button class="next-btn" aria-label="Próximo slide">&#10095;</button>
         </div>
       </div>
 
-      <div class="features-grid">
-        <div class="feature-card">
-          <i class="fa-solid fa-users-rays icon-feature"></i>
-          <h3>Diversidade é Valor</h3>
-          <p>Cada pessoa possui histórias, habilidades e perspectivas únicas. Respeitar a diversidade torna a escola um ambiente mais rico e justo.</p>
+      <!-- Recursos / Pilares do Projeto -->
+      <div class="section-title">
+        <h3>Nossos Pilares de Atuação</h3>
+        <p>Ações práticas para transformar o cotidiano escolar em um lugar seguro.</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="info-card">
+          <div class="card-icon"><i class="fa-solid fa-hands-holding-circle"></i></div>
+          <h3>Empatia e Respeito</h3>
+          <p>Compreender que cada pessoa carrega sua própria história e vivências. Respeitar as diferenças é o primeiro passo para o combate ao preconceito.</p>
         </div>
-        <div class="feature-card">
-          <i class="fa-solid fa-shield-heart icon-feature"></i>
-          <h3>Ambiente Seguro</h3>
-          <p>Lutamos ativamente contra o bullying, o preconceito e qualquer forma de exclusão. Acolhimento é direito de todos.</p>
+
+        <div class="info-card">
+          <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Combate ao Bullying</h3>
+          <p>Ofensas, apelidos pejorativos ou atitudes de exclusão não são piadas. Trabalhamos ativamente para identificar e combater o bullying escolar.</p>
         </div>
-        <div class="feature-card">
-          <i class="fa-solid fa-hands-holding-child icon-feature"></i>
-          <h3>Rede de Apoio</h3>
-          <p>Professores, pedagogos e gestores estão prontos para te ouvir. Descubra como e onde buscar ajuda em momentos difíceis.</p>
+
+        <div class="info-card">
+          <div class="card-icon"><i class="fa-solid fa-headset"></i></div>
+          <h3>Escuta Ativa</h3>
+          <p>Oferecemos orientações claras para que estudantes saibam exatamente a quem recorrer dentro e fora do ambiente escolar quando precisarem de ajuda.</p>
         </div>
       </div>
     </section>
 
     <!-- 2. PORTAL DE ESCUTA -->
     <section id="escuta" class="page-section">
-      <div class="section-header">
-        <h2><i class="fa-solid fa-heart-pulse"></i> Portal de Escuta</h2>
-        <p>Um espaço reservado para você expressar seus sentimentos de forma anônima e segura.</p>
+      <div class="section-title">
+        <span class="chip"><i class="fa-solid fa-shield-cat"></i> Espaço Seguro</span>
+        <h2>Portal de Escuta Simulada</h2>
+        <p>Um ambiente para expressar seus sentimentos de forma sigilosa e receber orientações práticas.</p>
       </div>
 
-      <div class="escuta-container">
-        <div class="form-box">
-          <div class="simulated-badge"><i class="fa-solid fa-lock"></i> Espaço de Simulação Anônima</div>
-          <form id="vent-form">
-            <label for="user-text">Como você está se sentindo hoje? Se desejar, faça um desabafo:</label>
-            <textarea id="user-text" rows="5" placeholder="Escreva aqui o que está em sua mente..." required></textarea>
-            <button type="submit" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> Enviar Desabafo</button>
+      <div class="escuta-grid">
+        <!-- Formulário de Desabafo -->
+        <div class="panel-card">
+          <div class="panel-header">
+            <i class="fa-solid fa-lock text-accent"></i>
+            <div>
+              <h4>Simulação de Desabafo Anônimo</h4>
+              <span class="subtext">Nenhum dado é armazenado ou enviado a servidores.</span>
+            </div>
+          </div>
+
+          <form id="vent-form" class="vent-form">
+            <div class="form-group">
+              <label for="user-text">Como você está se sentindo hoje?</label>
+              <textarea id="user-text" rows="5" placeholder="Escreva livremente sobre o que está te incomodando ou como foi o seu dia..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary w-full">
+              <i class="fa-solid fa-paper-plane"></i> Enviar para Escuta Simulada
+            </button>
           </form>
 
-          <div id="feedback-response" class="feedback-box hidden">
-            <i class="fa-solid fa-circle-check icon-success"></i>
-            <h3>Obrigado por compartilhar!</h3>
-            <p id="auto-message"></p>
+          <!-- Resposta Automática -->
+          <div id="feedback-response" class="feedback-card hidden">
+            <div class="feedback-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <h4>Obrigado por compartilhar!</h4>
+            <p id="auto-message" class="feedback-msg"></p>
           </div>
         </div>
 
-        <div class="guidance-box">
-          <h3><i class="fa-solid fa-compass"></i> Onde Encontrar Apoio Real</h3>
-          <p>Lembre-se: este portal é uma ferramenta educativa. Quando precisar de apoio prático ou conversar com alguém de verdade, procure:</p>
-          <ul>
-            <li><i class="fa-solid fa-user-check"></i> <strong>Equipe Pedagógica:</strong> Pedagogos e orientadores educacionais da sua escola.</li>
-            <li><i class="fa-solid fa-chalkboard-user"></i> <strong>Professores de Confiança:</strong> Aquele educador com quem você sente afinidade.</li>
-            <li><i class="fa-solid fa-people-roof"></i> <strong>Família ou Responsáveis:</strong> Pessoas próximas no seu convívio familiar.</li>
-            <li><i class="fa-solid fa-phone-volume"></i> <strong>CVV (Centro de Valorização da Vida):</strong> Ligue 188 (Atendimento gratuito e sigiloso 24h).</li>
+        <!-- Guia de Apoio Real -->
+        <div class="panel-card alt-bg">
+          <div class="panel-header">
+            <i class="fa-solid fa-compass text-accent"></i>
+            <div>
+              <h4>Onde Encontrar Ajuda Real</h4>
+              <span class="subtext">Não enfrente desafios sozinho(a). Procure apoio:</span>
+            </div>
+          </div>
+
+          <ul class="support-list">
+            <li>
+              <div class="support-icon"><i class="fa-solid fa-user-tie"></i></div>
+              <div>
+                <strong>Equipe Pedagógica & Orientadores:</strong>
+                <p>Estão preparados para ouvir você com sigilo e tomar atitudes dentro da escola.</p>
+              </div>
+            </li>
+            <li>
+              <div class="support-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+              <div>
+                <strong>Professores de Confiança:</strong>
+                <p>Escolha um educador com quem você se identifique para desabafar.</p>
+              </div>
+            </li>
+            <li>
+              <div class="support-icon"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <strong>CVV — Centro de Valorização da Vida:</strong>
+                <p>Ligue <strong>188</strong> (Atendimento gratuito, sigiloso e disponível 24 horas por dia).</p>
+              </div>
+            </li>
           </ul>
 
-          <div class="quote-box">
-            <i class="fa-solid fa-quote-left icon-quote"></i>
-            <p id="motivational-quote">"Pedir ajuda não é sinal de fraqueza, mas sim o primeiro passo de coragem para superar um desafio."</p>
+          <div class="quote-card">
+            <i class="fa-solid fa-quote-left quote-icon"></i>
+            <p id="motivational-quote">"Pedir ajuda não é sinal de fraqueza; é a maior prova de coragem e autocuidado que você pode demonstrar."</p>
           </div>
         </div>
       </div>
@@ -130,91 +297,110 @@
 
     <!-- 3. QUIZ INTERATIVO -->
     <section id="quiz" class="page-section">
-      <div class="section-header">
-        <h2><i class="fa-solid fa-circle-question"></i> Quiz: Inclusão e Respeito</h2>
-        <p>Teste seus conhecimentos sobre convivência escolar, empatia e combate à discriminação.</p>
+      <div class="section-title">
+        <span class="chip"><i class="fa-solid fa-brain"></i> Desafio de Conhecimento</span>
+        <h2>Quiz: Inclusão, Respeito e Empatia</h2>
+        <p>Responda às 5 perguntas e teste sua percepção sobre situações do ambiente escolar.</p>
       </div>
 
-      <div class="quiz-wrapper">
-        <div id="quiz-container">
-          <div class="quiz-progress">
-            <span>Pergunta <span id="current-q">1</span> de 5</span>
-            <div class="progress-bar"><div id="progress-fill"></div></div>
+      <div class="quiz-container-card">
+        <div id="quiz-active-block">
+          <div class="quiz-meta">
+            <span>Pergunta <strong id="current-q">1</strong> de 5</span>
+            <div class="progress-track">
+              <div id="progress-fill" class="progress-fill"></div>
+            </div>
           </div>
 
-          <h3 id="quiz-question">Carregando pergunta...</h3>
-          <div id="quiz-options" class="options-container"></div>
+          <h3 id="quiz-question" class="quiz-question-text">Carregando pergunta...</h3>
 
-          <button id="next-q-btn" class="btn-primary hidden">Próxima Pergunta <i class="fa-solid fa-arrow-right"></i></button>
+          <div id="quiz-options" class="quiz-options-grid"></div>
+
+          <div class="quiz-footer">
+            <button id="next-q-btn" class="btn-primary hidden">
+              Próxima Pergunta <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
         </div>
 
-        <div id="quiz-result" class="result-container hidden">
-          <i class="fa-solid fa-award result-icon"></i>
+        <!-- Tela de Resultado do Quiz -->
+        <div id="quiz-result-block" class="quiz-result hidden">
+          <div class="result-badge"><i class="fa-solid fa-trophy"></i></div>
           <h3>Quiz Concluído!</h3>
-          <p>Sua pontuação final:</p>
-          <div class="score-badge"><span id="score">0</span> / 5</div>
-          <p id="score-message"></p>
-          <button id="restart-quiz-btn" class="btn-primary"><i class="fa-solid fa-rotate-right"></i> Refazer Quiz</button>
+          <p>Confira o seu desempenho final:</p>
+          <div class="score-display">
+            <span id="score">0</span><span>/ 5</span>
+          </div>
+          <p id="score-message" class="score-message"></p>
+          <button id="restart-quiz-btn" class="btn-primary">
+            <i class="fa-solid fa-rotate-right"></i> Tentar Novamente
+          </button>
         </div>
       </div>
     </section>
 
     <!-- 4. PÁGINA DE REFERÊNCIAS -->
     <section id="referencias" class="page-section">
-      <div class="section-header">
-        <h2><i class="fa-solid fa-graduation-cap"></i> Referências e Fontes Consultadas</h2>
-        <p>Garantimos a qualidade das informações utilizando materiais de órgãos oficiais e instituições de saúde/educação.</p>
+      <div class="section-title">
+        <span class="chip"><i class="fa-solid fa-graduation-cap"></i> Fontes Confiáveis</span>
+        <h2>Referências e Materiais de Pesquisa</h2>
+        <p>Todas as orientações deste portal utilizam dados e diretrizes de instituições oficiais.</p>
       </div>
 
-      <div class="references-list">
-        <article class="ref-card">
+      <div class="references-grid">
+        <a href="https://www.gov.br/mec/pt-br" target="_blank" rel="noopener noreferrer" class="ref-card">
           <div class="ref-icon"><i class="fa-solid fa-building-columns"></i></div>
-          <div class="ref-content">
-            <h3>Ministério da Educação (MEC)</h3>
-            <p>Diretrizes sobre Educação Especial na Perspectiva da Educação Inclusiva e combate ao preconceito nas escolas.</p>
-            <a href="https://www.gov.br/mec/pt-br" target="_blank" rel="noopener noreferrer">Acessar portal oficial <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <div class="ref-info">
+            <h4>Ministério da Educação (MEC)</h4>
+            <p>Diretrizes nacionais para a educação inclusiva e combate à discriminação nas instituições de ensino.</p>
+            <span class="ref-link">Acessar site oficial <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
           </div>
-        </article>
+        </a>
 
-        <article class="ref-card">
+        <a href="https://www.unicef.org/brazil/" target="_blank" rel="noopener noreferrer" class="ref-card">
           <div class="ref-icon"><i class="fa-solid fa-globe"></i></div>
-          <div class="ref-content">
-            <h3>UNICEF Brasil</h3>
-            <p>Guias educativos sobre inclusão social, proteção à infância e combate ao bullying escolar.</p>
-            <a href="https://www.unicef.org/brazil/" target="_blank" rel="noopener noreferrer">Acessar UNICEF <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <div class="ref-info">
+            <h4>UNICEF Brasil</h4>
+            <p>Estratégias para proteção da infância, igualdade e ambientes escolares seguros e inclusivos.</p>
+            <span class="ref-link">Acessar UNICEF <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
           </div>
-        </article>
+        </a>
 
-        <article class="ref-card">
+        <a href="https://new.safernet.org.br/" target="_blank" rel="noopener noreferrer" class="ref-card">
           <div class="ref-icon"><i class="fa-solid fa-shield-halved"></i></div>
-          <div class="ref-content">
-            <h3>SaferNet Brasil</h3>
-            <p>Orientações para uso consciente da internet, prevenção do cyberbullying e segurança digital para jovens.</p>
-            <a href="https://new.safernet.org.br/" target="_blank" rel="noopener noreferrer">Acessar SaferNet <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <div class="ref-info">
+            <h4>SaferNet Brasil</h4>
+            <p>Orientação sobre cidadania digital, segurança na web e prevenção do cyberbullying entre jovens.</p>
+            <span class="ref-link">Acessar SaferNet <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
           </div>
-        </article>
+        </a>
 
-        <article class="ref-card">
+        <a href="https://cvv.org.br/" target="_blank" rel="noopener noreferrer" class="ref-card">
           <div class="ref-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-          <div class="ref-content">
-            <h3>Centro de Valorização da Vida (CVV)</h3>
-            <p>Apoio emocional e prevenção do suicídio de forma gratuita e sigilosa.</p>
-            <a href="https://cvv.org.br/" target="_blank" rel="noopener noreferrer">Acessar CVV <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <div class="ref-info">
+            <h4>CVV — Centro de Valorização da Vida</h4>
+            <p>Serviço de apoio emocional gratuito, confidencial e disponível 24 horas por dia por telefone ou chat.</p>
+            <span class="ref-link">Acessar portal CVV <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
           </div>
-        </article>
+        </a>
       </div>
     </section>
 
   </main>
 
   <!-- Botão Voltar ao Topo -->
-  <button id="back-to-top" title="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+  <button id="back-to-top" class="back-to-top" title="Voltar ao topo" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
-  <!-- Rodapé -->
-  <footer>
-    <div class="footer-content">
-      <p>&copy; 2026 Portal de Apoio ao Estudante — Projeto Escolar Individual.</p>
-      <p>Desenvolvido com foco em Empatia, Inclusão e Respeito.</p>
+  <!-- Rodapé do Site -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <i class="fa-solid fa-hand-holding-heart"></i>
+        <span>AcolheEscola</span>
+      </div>
+      <p>&copy; 2026 Portal de Apoio ao Estudante — Desenvolvido com foco em Empatia e Respeito.</p>
     </div>
   </footer>
 
