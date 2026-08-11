@@ -3,447 +3,220 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acolhe+ — Portal de Apoio ao Estudante</title>
+  <title>Portal de Apoio ao Estudante - Inclusão & Respeito</title>
+  <!-- Ícones do Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
 
-  <!-- Barra de Acessibilidade Flutuante -->
-  <aside class="accessibility-bar" aria-label="Controles de Acessibilidade">
-    <div class="accessibility-container">
-      <span class="acc-label">Acessibilidade:</span>
-      <button id="btn-font-increase" aria-label="Aumentar fonte">A+</button>
-      <button id="btn-font-decrease" aria-label="Diminuir fonte">A-</button>
-      <button id="btn-theme-toggle" aria-label="Alternar Modo Escuro">
-        <i class="ph ph-moon"></i> <span class="btn-text">Modo Escuro</span>
-      </button>
-      <button id="btn-contrast-toggle" aria-label="Alternar Alto Contraste">
-        <i class="ph ph-circle-half"></i> <span class="btn-text">Alto Contraste</span>
-      </button>
+  <!-- Barra de Acessibilidade & Cabeçalho -->
+  <header>
+    <div class="accessibility-bar">
+      <span>Acessibilidade:</span>
+      <button id="btn-font-toggle" title="Aumentar Fonte"><i class="fa-solid fa-font"></i> +A</button>
+      <button id="btn-contrast-toggle" title="Alto Contraste"><i class="fa-solid fa-circle-half-stroke"></i> Alto Contraste</button>
+      <button id="btn-dark-toggle" title="Modo Escuro"><i class="fa-solid fa-moon"></i> Modo Escuro</button>
     </div>
-  </aside>
 
-  <!-- Cabeçalho & Navegação -->
-  <header class="header-sticky">
-    <div class="header-container">
-      <div class="logo-area">
-        <a href="#inicio" class="logo">Acolhe<span class="highlight">+</span></a>
-        <span class="subtitle">Portal de Apoio ao Estudante</span>
+    <div class="header-main">
+      <div class="logo">
+        <i class="fa-solid fa-hand-holding-heart"></i>
+        <h1>Acolhe<span>Escola</span></h1>
       </div>
-
-      <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu de navegação" aria-expanded="false">
-        <i class="ph ph-list"></i>
-      </button>
-
-      <nav class="nav-menu" id="nav-menu">
+      <nav>
         <ul>
-          <li><a href="#inicio" class="nav-link">Início</a></li>
-          <li><a href="#inclusao" class="nav-link">Inclusão</a></li>
-          <li><a href="#escuta" class="nav-link">Portal de Escuta</a></li>
-          <li><a href="#quiz" class="nav-link">Quiz</a></li>
-          <li><a href="#referencias" class="nav-link">Referências</a></li>
+          <li><a href="#inicio" class="nav-link active"><i class="fa-solid fa-house"></i> Início</a></li>
+          <li><a href="#escuta" class="nav-link"><i class="fa-solid fa-comments"></i> Portal de Escuta</a></li>
+          <li><a href="#quiz" class="nav-link"><i class="fa-solid fa-lightbulb"></i> Quiz Interativo</a></li>
+          <li><a href="#referencias" class="nav-link"><i class="fa-solid fa-book-bookmark"></i> Referências</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- 2. HERO / DESTAQUE -->
-    <section id="inicio" class="hero-section">
-      <div class="container hero-container">
+
+    <!-- 1. PÁGINA INICIAL -->
+    <section id="inicio" class="page-section active">
+      <div class="hero">
         <div class="hero-content">
-          <span class="badge"><i class="ph ph-heart"></i> Espaço Seguro & Acolhedor</span>
-          <h1>Acolhe+</h1>
-          <p class="hero-subtitle">Inclusão, respeito e acolhimento para todos.</p>
-          <p class="hero-description">
-            Cada pessoa é única. Respeitar as diferenças é construir uma escola onde todos possam se sentir seguros, valorizados e acolhidos.
+          <span class="badge">Inclusão e Respeito às Diferenças</span>
+          <h2>Bem-vindo ao Portal de Apoio ao Estudante</h2>
+          <p class="welcome-msg">
+            Aqui você encontrará informações, orientações e apoio sobre situações vivenciadas no ambiente escolar. Nossa missão é criar um espaço seguro, empático e acolhedor para todas as pessoas.
           </p>
-          <div class="hero-buttons">
-            <a href="#inclusao" class="btn btn-primary"><i class="ph ph-compass"></i> Explorar o portal</a>
-            <a href="#escuta" class="btn btn-secondary"><i class="ph ph-chats-teardrop"></i> Preciso conversar</a>
+          <a href="#escuta" class="btn-primary start-nav">Precisa conversar? Acesse a Escuta</a>
+        </div>
+
+        <!-- Carrossel de Imagens -->
+        <div class="carousel-container">
+          <div class="carousel-slide active">
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80" alt="Grupo de estudantes sorrindo juntos em diversidade">
+            <div class="carousel-caption">Promovendo a empatia e a convivência saudável.</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" alt="Alunos estudando em equipe na sala de aula">
+            <div class="carousel-caption">Respeitar as diferenças nos fortalece.</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Jovens conversando no pátio da escola">
+            <div class="carousel-caption">Nenhum estudante precisa estar sozinho.</div>
+          </div>
+          <button class="prev-btn" aria-label="Slide anterior">&#10094;</button>
+          <button class="next-btn" aria-label="Próximo slide">&#10095;</button>
+        </div>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="fa-solid fa-users-rays icon-feature"></i>
+          <h3>Diversidade é Valor</h3>
+          <p>Cada pessoa possui histórias, habilidades e perspectivas únicas. Respeitar a diversidade torna a escola um ambiente mais rico e justo.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa-solid fa-shield-heart icon-feature"></i>
+          <h3>Ambiente Seguro</h3>
+          <p>Lutamos ativamente contra o bullying, o preconceito e qualquer forma de exclusão. Acolhimento é direito de todos.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa-solid fa-hands-holding-child icon-feature"></i>
+          <h3>Rede de Apoio</h3>
+          <p>Professores, pedagogos e gestores estão prontos para te ouvir. Descubra como e onde buscar ajuda em momentos difíceis.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. PORTAL DE ESCUTA -->
+    <section id="escuta" class="page-section">
+      <div class="section-header">
+        <h2><i class="fa-solid fa-heart-pulse"></i> Portal de Escuta</h2>
+        <p>Um espaço reservado para você expressar seus sentimentos de forma anônima e segura.</p>
+      </div>
+
+      <div class="escuta-container">
+        <div class="form-box">
+          <div class="simulated-badge"><i class="fa-solid fa-lock"></i> Espaço de Simulação Anônima</div>
+          <form id="vent-form">
+            <label for="user-text">Como você está se sentindo hoje? Se desejar, faça um desabafo:</label>
+            <textarea id="user-text" rows="5" placeholder="Escreva aqui o que está em sua mente..." required></textarea>
+            <button type="submit" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> Enviar Desabafo</button>
+          </form>
+
+          <div id="feedback-response" class="feedback-box hidden">
+            <i class="fa-solid fa-circle-check icon-success"></i>
+            <h3>Obrigado por compartilhar!</h3>
+            <p id="auto-message"></p>
           </div>
         </div>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="illustration-card">
-            <div class="avatar-group">
-              <span class="avatar yellow"><i class="ph ph-user"></i></span>
-              <span class="avatar pink"><i class="ph ph-user"></i></span>
-              <span class="avatar white"><i class="ph ph-user"></i></span>
-              <span class="avatar dark"><i class="ph ph-user"></i></span>
-            </div>
-            <div class="visual-badge"><i class="ph ph-hand-heart"></i> Respeito & União</div>
-            <div class="floating-shape shape-1">🤝</div>
-            <div class="floating-shape shape-2">🌈</div>
-            <div class="floating-shape shape-3">🫶</div>
+
+        <div class="guidance-box">
+          <h3><i class="fa-solid fa-compass"></i> Onde Encontrar Apoio Real</h3>
+          <p>Lembre-se: este portal é uma ferramenta educativa. Quando precisar de apoio prático ou conversar com alguém de verdade, procure:</p>
+          <ul>
+            <li><i class="fa-solid fa-user-check"></i> <strong>Equipe Pedagógica:</strong> Pedagogos e orientadores educacionais da sua escola.</li>
+            <li><i class="fa-solid fa-chalkboard-user"></i> <strong>Professores de Confiança:</strong> Aquele educador com quem você sente afinidade.</li>
+            <li><i class="fa-solid fa-people-roof"></i> <strong>Família ou Responsáveis:</strong> Pessoas próximas no seu convívio familiar.</li>
+            <li><i class="fa-solid fa-phone-volume"></i> <strong>CVV (Centro de Valorização da Vida):</strong> Ligue 188 (Atendimento gratuito e sigiloso 24h).</li>
+          </ul>
+
+          <div class="quote-box">
+            <i class="fa-solid fa-quote-left icon-quote"></i>
+            <p id="motivational-quote">"Pedir ajuda não é sinal de fraqueza, mas sim o primeiro passo de coragem para superar um desafio."</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. INCLUSÃO E RESPEITO -->
-    <section id="inclusao" class="section-padding">
-      <div class="container">
-        <div class="section-header">
-          <h2>Inclusão começa com respeito</h2>
-          <p class="section-desc">
-            Inclusão não é apenas permitir que todos estejam no mesmo espaço, mas garantir que todos se sintam pertencentes, respeitados e ouvidos em suas individualidades.
-          </p>
+    <!-- 3. QUIZ INTERATIVO -->
+    <section id="quiz" class="page-section">
+      <div class="section-header">
+        <h2><i class="fa-solid fa-circle-question"></i> Quiz: Inclusão e Respeito</h2>
+        <p>Teste seus conhecimentos sobre convivência escolar, empatia e combate à discriminação.</p>
+      </div>
+
+      <div class="quiz-wrapper">
+        <div id="quiz-container">
+          <div class="quiz-progress">
+            <span>Pergunta <span id="current-q">1</span> de 5</span>
+            <div class="progress-bar"><div id="progress-fill"></div></div>
+          </div>
+
+          <h3 id="quiz-question">Carregando pergunta...</h3>
+          <div id="quiz-options" class="options-container"></div>
+
+          <button id="next-q-btn" class="btn-primary hidden">Próxima Pergunta <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
-        <div class="cards-grid">
-          <article class="info-card">
-            <div class="card-icon"><i class="ph ph-handshake"></i></div>
-            <h3>🤝 Respeito</h3>
-            <p>Valorizar as pessoas mesmo quando somos diferentes, reconhecendo a dignidade de cada indivíduo.</p>
-          </article>
-
-          <article class="info-card">
-            <div class="card-icon"><i class="ph ph-rainbow"></i></div>
-            <h3>🌈 Diversidade</h3>
-            <p>Entender que cada pessoa possui características, histórias e experiências únicas que enriquecem a comunidade.</p>
-          </article>
-
-          <article class="info-card">
-            <div class="card-icon"><i class="ph ph-heartbeat"></i></div>
-            <h3>💕 Empatia</h3>
-            <p>Tentar compreender os sentimentos e experiências de outras pessoas colocando-se no lugar delas.</p>
-          </article>
-
-          <article class="info-card">
-            <div class="card-icon"><i class="ph ph-hands-clasping"></i></div>
-            <h3>🫶 Acolhimento</h3>
-            <p>Criar um ambiente onde todos possam se sentir seguros, apoiados e genuinamente respeitados.</p>
-          </article>
+        <div id="quiz-result" class="result-container hidden">
+          <i class="fa-solid fa-award result-icon"></i>
+          <h3>Quiz Concluído!</h3>
+          <p>Sua pontuação final:</p>
+          <div class="score-badge"><span id="score">0</span> / 5</div>
+          <p id="score-message"></p>
+          <button id="restart-quiz-btn" class="btn-primary"><i class="fa-solid fa-rotate-right"></i> Refazer Quiz</button>
         </div>
       </div>
     </section>
 
-    <!-- 10. CARROSSEL INTERATIVO -->
-    <section class="section-padding carousel-section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Valores que nos Unem</h2>
-          <p class="section-desc">Passeie pelos pilares de uma comunidade escolar inclusiva.</p>
-        </div>
+    <!-- 4. PÁGINA DE REFERÊNCIAS -->
+    <section id="referencias" class="page-section">
+      <div class="section-header">
+        <h2><i class="fa-solid fa-graduation-cap"></i> Referências e Fontes Consultadas</h2>
+        <p>Garantimos a qualidade das informações utilizando materiais de órgãos oficiais e instituições de saúde/educação.</p>
+      </div>
 
-        <div class="carousel-container" id="carousel">
-          <div class="carousel-track-container">
-            <ul class="carousel-track" id="carousel-track">
-              <li class="carousel-slide active">
-                <div class="slide-card">
-                  <div class="slide-emoji">🤝</div>
-                  <h3>Convivência Harmoniosa</h3>
-                  <p>Aprender a conviver com as diferenças constrói um ambiente escolar livre de preconceitos e discriminação.</p>
-                </div>
-              </li>
-              <li class="carousel-slide">
-                <div class="slide-card">
-                  <div class="slide-emoji">🌈</div>
-                  <h3>Valorização da Pluralidade</h3>
-                  <p>Nossa sociedade é diversificada. Aprender com quem pensa ou vive diferente expande nossos horizontes.</p>
-                </div>
-              </li>
-              <li class="carousel-slide">
-                <div class="slide-card">
-                  <div class="slide-emoji">🫶</div>
-                  <h3>Rede de Apoio</h3>
-                  <p>Ninguém deve caminhar sozinho. Estender a mão a quem precisa fortalece todo o grupo escolar.</p>
-                </div>
-              </li>
-              <li class="carousel-slide">
-                <div class="slide-card">
-                  <div class="slide-emoji">✨</div>
-                  <h3>Cultura de Paz</h3>
-                  <p>Diálogo, escuta ativa e tolerância são as ferramentas fundamentais para transformar conflitos em aprendizado.</p>
-                </div>
-              </li>
-            </ul>
+      <div class="references-list">
+        <article class="ref-card">
+          <div class="ref-icon"><i class="fa-solid fa-building-columns"></i></div>
+          <div class="ref-content">
+            <h3>Ministério da Educação (MEC)</h3>
+            <p>Diretrizes sobre Educação Especial na Perspectiva da Educação Inclusiva e combate ao preconceito nas escolas.</p>
+            <a href="https://www.gov.br/mec/pt-br" target="_blank" rel="noopener noreferrer">Acessar portal oficial <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
           </div>
+        </article>
 
-          <button class="carousel-btn prev-btn" id="carousel-prev" aria-label="Anterior"><i class="ph ph-caret-left"></i></button>
-          <button class="carousel-btn next-btn" id="carousel-next" aria-label="Próximo"><i class="ph ph-caret-right"></i></button>
-
-          <div class="carousel-nav" id="carousel-nav">
-            <button class="indicator active" aria-label="Slide 1"></button>
-            <button class="indicator" aria-label="Slide 2"></button>
-            <button class="indicator" aria-label="Slide 3"></button>
-            <button class="indicator" aria-label="Slide 4"></button>
+        <article class="ref-card">
+          <div class="ref-icon"><i class="fa-solid fa-globe"></i></div>
+          <div class="ref-content">
+            <h3>UNICEF Brasil</h3>
+            <p>Guias educativos sobre inclusão social, proteção à infância e combate ao bullying escolar.</p>
+            <a href="https://www.unicef.org/brazil/" target="_blank" rel="noopener noreferrer">Acessar UNICEF <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
           </div>
-        </div>
+        </article>
+
+        <article class="ref-card">
+          <div class="ref-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="ref-content">
+            <h3>SaferNet Brasil</h3>
+            <p>Orientações para uso consciente da internet, prevenção do cyberbullying e segurança digital para jovens.</p>
+            <a href="https://new.safernet.org.br/" target="_blank" rel="noopener noreferrer">Acessar SaferNet <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+
+        <article class="ref-card">
+          <div class="ref-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+          <div class="ref-content">
+            <h3>Centro de Valorização da Vida (CVV)</h3>
+            <p>Apoio emocional e prevenção do suicídio de forma gratuita e sigilosa.</p>
+            <a href="https://cvv.org.br/" target="_blank" rel="noopener noreferrer">Acessar CVV <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- 4. VOCÊ SABIA? -->
-    <section class="section-padding feature-box-section">
-      <div class="container">
-        <div class="interactive-box">
-          <div class="box-header">
-            <i class="ph ph-lightbulb"></i>
-            <h2>Você Sabia?</h2>
-          </div>
-          <div class="box-content" id="did-you-know-content">
-            <p>Clique no botão abaixo para descobrir fatos e dados importantes sobre inclusão, diversidade e empatia nas escolas!</p>
-          </div>
-          <button id="btn-curiosity" class="btn btn-primary"><i class="ph ph-sparkle"></i> Descobrir curiosidade</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. MITOS E VERDADES -->
-    <section class="section-padding">
-      <div class="container">
-        <div class="section-header">
-          <h2>Mitos e Verdades sobre Inclusão</h2>
-          <p class="section-desc">Desmistificando conceitos fundamentais para promover uma convivência mais justa.</p>
-        </div>
-
-        <div class="myths-grid">
-          <article class="myth-card">
-            <p class="myth-statement">"Respeitar as diferenças significa tratar todas as pessoas exatamente da mesma maneira."</p>
-            <button class="btn btn-outline btn-reveal">Ver resposta</button>
-            <div class="myth-answer hidden">
-              <span class="tag myth">MITO!</span>
-              <p>Respeitar as diferenças também significa reconhecer que algumas pessoas podem precisar de diferentes formas de apoio para ter as mesmas oportunidades.</p>
-            </div>
-          </article>
-
-          <article class="myth-card">
-            <p class="myth-statement">"A inclusão escolar beneficia apenas os estudantes com deficiência ou necessidades específicas."</p>
-            <button class="btn btn-outline btn-reveal">Ver resposta</button>
-            <div class="myth-answer hidden">
-              <span class="tag myth">MITO!</span>
-              <p>A inclusão beneficia toda a comunidade escolar, pois ensina a todos sobre empatia, colaboração, diversidade e cidadania.</p>
-            </div>
-          </article>
-
-          <article class="myth-card">
-            <p class="myth-statement">"Pedir ajuda ou desabafar quando as coisas estão difíceis é um sinal de fraqueza."</p>
-            <button class="btn btn-outline btn-reveal">Ver resposta</button>
-            <div class="myth-answer hidden">
-              <span class="tag myth">MITO!</span>
-              <p>Reconhecer os próprios limites e buscar ajuda de pessoas de confiança é uma demonstração de maturidade, inteligência emocional e coragem.</p>
-            </div>
-          </article>
-
-          <article class="myth-card">
-            <p class="myth-statement">"Pequenas atitudes do dia a dia podem combater a exclusão e o bullying na escola."</p>
-            <button class="btn btn-outline btn-reveal">Ver resposta</button>
-            <div class="myth-answer hidden">
-              <span class="tag truth">VERDADE!</span>
-              <p>Gestos simples como cumprimentar alguém isolado, não espalhar boatos e convidar colegas para o grupo transformam totalmente o ambiente escolar.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. PORTAL DE ESCUTA -->
-    <section id="escuta" class="section-padding listening-section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Portal de Escuta</h2>
-          <p class="section-desc">
-            Às vezes precisamos falar sobre o que estamos sentindo. Este espaço é uma simulação para você escrever o que está pensando.
-          </p>
-        </div>
-
-        <div class="listening-grid">
-          <div class="form-wrapper">
-            <form id="listening-form" novalidate>
-              <div class="form-group">
-                <label for="student-name">Seu nome ou apelido (Opcional):</label>
-                <input type="text" id="student-name" placeholder="Como prefere ser chamado(a)?">
-              </div>
-
-              <div class="form-group">
-                <label for="student-message">Seu desabafo / mensagem:*</label>
-                <textarea id="student-message" rows="5" placeholder="Escreva livremente aqui sobre o que está sentindo..." required></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-block"><i class="ph ph-paper-plane-right"></i> Enviar desabafo</button>
-            </form>
-
-            <div id="form-feedback" class="feedback-box hidden" role="alert"></div>
-          </div>
-
-          <div class="motivation-wrapper">
-            <div class="motivation-card">
-              <h3>Precisa de uma palavra amiga?</h3>
-              <p>Clique no botão abaixo para receber uma mensagem de incentivo e acolhimento.</p>
-              <div id="motivation-display" class="message-display">
-                <p>"Seus sentimentos são válidos. Você não precisa carregar tudo só."</p>
-              </div>
-              <button id="btn-motivation" class="btn btn-secondary"><i class="ph ph-heart"></i> Receber uma mensagem</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. QUANDO PROCURAR AJUDA? -->
-    <section class="section-padding">
-      <div class="container">
-        <div class="section-header">
-          <h2>Quando procurar ajuda?</h2>
-          <p class="section-desc">Saber a quem recorrer é fundamental para garantir sua segurança e bem-estar emocional.</p>
-        </div>
-
-        <div class="help-alert-box">
-          <i class="ph ph-warning-circle"></i>
-          <p><strong>Atenção:</strong> Se alguma situação estiver causando medo, sofrimento, humilhação, exclusão ou insegurança, procure um adulto de confiança e peça ajuda.</p>
-        </div>
-
-        <div class="help-grid">
-          <div class="help-card">
-            <div class="help-icon"><i class="ph ph-chalkboard-teacher"></i></div>
-            <h3>Professores & Pedagogos</h3>
-            <p>Eles acompanham sua rotina diária na escola e podem intervir diretamente em situações de conflito ou dificuldades disciplinares e sociais.</p>
-          </div>
-
-          <div class="help-card">
-            <div class="help-icon"><i class="ph ph-buildings"></i></div>
-            <h3>Direção da Escola</h3>
-            <p>A equipe diretiva é responsável por garantir um ambiente seguro e pode aplicar diretrizes de proteção e acolhimento.</p>
-          </div>
-
-          <div class="help-card">
-            <div class="help-icon"><i class="ph ph-users-three"></i></div>
-            <h3>Familiares & Responsáveis</h3>
-            <p>Sua família ou responsáveis legais são sua primeira rede de proteção fora da escola para ouvir e buscar apoio externo.</p>
-          </div>
-
-          <div class="help-card">
-            <div class="help-icon"><i class="ph ph-first-aid"></i></div>
-            <h3>Psicólogos & Especialistas</h3>
-            <p>Profissionais de saúde mental ajudam a compreender sentimentos complexos, ansiedade e oferecem ferramentas de suporte emocional.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8 & 9. QUIZ INTERATIVO -->
-    <section id="quiz" class="section-padding quiz-section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Quiz — Você entende de inclusão?</h2>
-          <p class="section-desc">Teste seus conhecimentos sobre diversidade, respeito e acolhimento na escola!</p>
-        </div>
-
-        <div class="quiz-card-container">
-          <div id="quiz-intro" class="quiz-step">
-            <h3>Preparado(a) para testar seus conhecimentos?</h3>
-            <p>O quiz contém exatamente 5 perguntas rápidas. No final, você verá seu resultado completo.</p>
-            <button id="btn-start-quiz" class="btn btn-primary"><i class="ph ph-play"></i> Iniciar Quiz</button>
-          </div>
-
-          <div id="quiz-game" class="quiz-step hidden">
-            <div class="quiz-header-status">
-              <span id="quiz-counter">Pergunta 1 de 5</span>
-              <span id="quiz-score-live">Pontos: 0</span>
-            </div>
-
-            <div class="progress-bar-bg">
-              <div id="quiz-progress-fill" class="progress-bar-fill"></div>
-            </div>
-
-            <div class="question-container">
-              <h3 id="quiz-question-text">Texto da Pergunta</h3>
-              <div id="quiz-options" class="options-grid"></div>
-            </div>
-
-            <button id="btn-next-question" class="btn btn-primary hidden">Próxima Pergunta <i class="ph ph-arrow-right"></i></button>
-          </div>
-
-          <div id="quiz-results" class="quiz-step hidden">
-            <div class="result-box">
-              <i class="ph ph-trophy result-icon"></i>
-              <h3>Seu Resultado</h3>
-              <p id="quiz-final-score" class="score-display">Você acertou X de 5 perguntas!</p>
-
-              <div class="percentage-wrapper">
-                <div id="quiz-percentage-circle" class="percentage-circle">
-                  <span id="quiz-percentage-text">0%</span>
-                </div>
-              </div>
-
-              <p id="quiz-feedback-msg" class="feedback-text">Mensagem adaptativa de resultado.</p>
-
-              <button id="btn-restart-quiz" class="btn btn-secondary"><i class="ph ph-arrows-clockwise"></i> Refazer quiz</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 11. FRASE DO DIA -->
-    <section class="section-padding quote-section">
-      <div class="container">
-        <div class="quote-card">
-          <div class="quote-icon"><i class="ph ph-quotes"></i></div>
-          <h2>Mensagem do Dia</h2>
-          <blockquote id="daily-quote-text">
-            "A inclusão acontece quando se aprende com as diferenças e não com as igualdades."
-          </blockquote>
-          <button id="btn-new-quote" class="btn btn-primary"><i class="ph ph-arrows-counter-clockwise"></i> Nova mensagem</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- 14. REFERÊNCIAS -->
-    <section id="referencias" class="section-padding">
-      <div class="container">
-        <div class="section-header">
-          <h2>Referências e Fontes Confiáveis</h2>
-          <p class="section-desc">Materiais institucionais e oficiais sobre inclusão, direitos e educação de qualidade.</p>
-        </div>
-
-        <div class="references-list">
-          <a href="https://www.gov.br/mec/pt-br" target="_blank" rel="noopener noreferrer" class="ref-item">
-            <div class="ref-icon"><i class="ph ph-link-simple"></i></div>
-            <div class="ref-info">
-              <h4>Ministério da Educação (MEC) - Educação Especial e Inclusiva</h4>
-              <p>Diretrizes e políticas públicas nacionais para garantir o acesso e a permanência com qualidade de todos os estudantes.</p>
-            </div>
-          </a>
-
-          <a href="https://www.unicef.org/brazil/" target="_blank" rel="noopener noreferrer" class="ref-item">
-            <div class="ref-icon"><i class="ph ph-link-simple"></i></div>
-            <div class="ref-info">
-              <h4>UNICEF Brasil - Declaração de Direitos e Inclusão da Infância</h4>
-              <p>Documentos e orientações sobre a proteção de crianças e adolescentes contra a discriminação e o bullying.</p>
-            </div>
-          </a>
-
-          <a href="https://pt.unesco.org/" target="_blank" rel="noopener noreferrer" class="ref-item">
-            <div class="ref-icon"><i class="ph ph-link-simple"></i></div>
-            <div class="ref-info">
-              <h4>UNESCO - Inclusão na Educação</h4>
-              <p>Relatórios globais sobre igualdade de oportunidades e desenvolvimento de ambientes escolares acolhedores.</p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
   </main>
 
+  <!-- Botão Voltar ao Topo -->
+  <button id="back-to-top" title="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+
   <!-- Rodapé -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <span class="logo">Acolhe<span class="highlight">+</span></span>
-          <p>Portal de Apoio ao Estudante — Inclusão e Respeito às Diferenças.</p>
-        </div>
-        <p class="footer-copy">&copy; 2026 Acolhe+. Projeto Educacional e Demonstrativo de Inclusão.</p>
-      </div>
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2026 Portal de Apoio ao Estudante — Projeto Escolar Individual.</p>
+      <p>Desenvolvido com foco em Empatia, Inclusão e Respeito.</p>
     </div>
   </footer>
-
-  <!-- 13. BOTÃO VOLTAR AO TOPO -->
-  <button id="btn-back-to-top" class="back-to-top" aria-label="Voltar ao topo da página">
-    <i class="ph ph-arrow-up"></i>
-  </button>
 
   <script src="script.js"></script>
 </body>

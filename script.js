@@ -1,373 +1,256 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
+  // ==========================================================================
+  // 1. NAVEGAÇÃO SPA (SINGLE PAGE APPLICATION)
+  // ==========================================================================
+  const navLinks = document.querySelectorAll(".nav-link, .start-nav");
+  const sections = document.querySelectorAll(".page-section");
 
-  /* --- 1. MENU MOBILE --- */
-  const hamburgerBtn = document.getElementById('hamburger-btn');
-  const navMenu = document.getElementById('nav-menu');
-  const navLinks = document.querySelectorAll('.nav-link');
-
-  if (hamburgerBtn && navMenu) {
-    hamburgerBtn.addEventListener('click', () => {
-      const isOpen = navMenu.classList.toggle('open');
-      hamburgerBtn.setAttribute('aria-expanded', isOpen);
+  function switchPage(targetId) {
+    const id = targetId.replace("#", "");
+    sections.forEach((sec) => {
+      sec.classList.toggle("active", sec.id === id);
     });
 
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('open');
-        hamburgerBtn.setAttribute('aria-expanded', 'false');
-      });
-    });
-  }
-
-  /* --- 2. ACESSIBILIDADE (FONTE, TEMA, ALTO CONTRASTE) --- */
-  const btnFontIncrease = document.getElementById('btn-font-increase');
-  const btnFontDecrease = document.getElementById('btn-font-decrease');
-  const btnThemeToggle = document.getElementById('btn-theme-toggle');
-  const btnContrastToggle = document.getElementById('btn-contrast-toggle');
-
-  let currentFontSize = 100;
-
-  if (btnFontIncrease && btnFontDecrease) {
-    btnFontIncrease.addEventListener('click', () => {
-      if (currentFontSize < 130) {
-        currentFontSize += 10;
-        document.documentElement.style.fontSize = `${currentFontSize}%`;
+    navLinks.forEach((link) => {
+      if (link.classList.contains("nav-link")) {
+        link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
       }
     });
 
-    btnFontDecrease.addEventListener('click', () => {
-      if (currentFontSize > 80) {
-        currentFontSize -= 10;
-        document.documentElement.style.fontSize = `${currentFontSize}%`;
-      }
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  if (btnThemeToggle) {
-    btnThemeToggle.addEventListener('click', () => {
-      document.body.classList.remove('high-contrast');
-      document.body.classList.toggle('dark-mode');
-    });
-  }
-
-  if (btnContrastToggle) {
-    btnContrastToggle.addEventListener('click', () => {
-      document.body.classList.remove('dark-mode');
-      document.body.classList.toggle('high-contrast');
-    });
-  }
-
-  /* --- 3. SEÇÃO VOCÊ SABIA? --- */
-  const btnCuriosity = document.getElementById('btn-curiosity');
-  const didYouKnowContent = document.getElementById('did-you-know-content');
-
-  const curiosities = [
-    "Escolas inclusivas melhoram o desempenho acadêmico e social de todos os alunos.",
-    "A empatia pode ser desenvolvida e fortalecida com a prática diária de escuta ativa.",
-    "O bullying diminui significativamente em ambientes escolares que promovem o acolhimento constante.",
-    "A convivência com a diversidade estimula a criatividade e o pensamento crítico.",
-    "A Lei Brasileira de Inclusão garante o direito de todos a uma educação de qualidade."
-  ];
-
-  if (btnCuriosity && didYouKnowContent) {
-    btnCuriosity.addEventListener('click', () => {
-      didYouKnowContent.style.opacity = '0';
-      setTimeout(() => {
-        const randomIndex = Math.floor(Math.random() * curiosities.length);
-        didYouKnowContent.innerHTML = `<p><strong>Fato:</strong> ${curiosities[randomIndex]}</p>`;
-        didYouKnowContent.style.opacity = '1';
-      }, 200);
-    });
-  }
-
-  /* --- 4. MITOS E VERDADES --- */
-  const revealButtons = document.querySelectorAll('.btn-reveal');
-
-  revealButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const answer = button.nextElementSibling;
-      if (answer) {
-        const isHidden = answer.classList.toggle('hidden');
-        button.textContent = isHidden ? 'Ver resposta' : 'Ocultar resposta';
-      }
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = link.getAttribute("href");
+      switchPage(target);
     });
   });
 
-  /* --- 5. PORTAL DE ESCUTA --- */
-  const listeningForm = document.getElementById('listening-form');
-  const formFeedback = document.getElementById('form-feedback');
-  const btnMotivation = document.getElementById('btn-motivation');
-  const motivationDisplay = document.getElementById('motivation-display');
+  // ==========================================================================
+  // 2. ACESSIBILIDADE (FONTE, MODO ESCURO E ALTO CONTRASTE)
+  // ==========================================================================
+  const btnFont = document.getElementById("btn-font-toggle");
+  const btnDark = document.getElementById("btn-dark-toggle");
+  const btnContrast = document.getElementById("btn-contrast-toggle");
+  let isLargeFont = false;
 
-  const motivationalMessages = [
-    "Você é importante e sua voz merece ser ouvida. 💛",
-    "Pedir ajuda é um ato de coragem, não de fraqueza. 🌈",
-    "Você merece ser respeitado(a) exatamente como você é. 🫶",
-    "Não tenha medo de conversar com alguém de confiança.",
-    "Suas diferenças fazem parte de quem você é.",
-    "Você não precisa enfrentar tudo sozinho(a)."
+  btnFont.addEventListener("click", () => {
+    isLargeFont = !isLargeFont;
+    document.documentElement.style.fontSize = isLargeFont ? "19px" : "16px";
+  });
+
+  btnDark.addEventListener("click", () => {
+    document.body.classList.remove("high-contrast");
+    document.body.classList.toggle("dark-mode");
+  });
+
+  btnContrast.addEventListener("click", () => {
+    document.body.classList.remove("dark-mode");
+    document.body.classList.toggle("high-contrast");
+  });
+
+  // ==========================================================================
+  // 3. CARROSSEL DE IMAGENS
+  // ==========================================================================
+  const slides = document.querySelectorAll(".carousel-slide");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
+    });
+  }
+
+  nextBtn?.addEventListener("click", () => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  });
+
+  prevBtn?.addEventListener("click", () => {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  });
+
+  // Transição automática do carrossel a cada 5s
+  setInterval(() => {
+    if (document.getElementById("inicio").classList.contains("active")) {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+  }, 5000);
+
+  // ==========================================================================
+  // 4. PORTAL DE ESCUTA (SIMULAÇÃO COM RESPOSTA AUTOMÁTICA)
+  // ==========================================================================
+  const ventForm = document.getElementById("vent-form");
+  const feedbackBox = document.getElementById("feedback-response");
+  const autoMessage = document.getElementById("auto-message");
+
+  const automatedResponses = [
+    "Obrigado por confiar e expressar o que sente. Lembre-se de que você é único(a) e sua presença na escola é fundamental.",
+    "Obrigado por compartilhar seus sentimentos. Nenhuma dificuldade precisa ser enfrentada sem apoio.",
+    "Seu desabafo foi acolhido. Lembre-se de conversar com um professor ou pedagogo de sua confiança na escola!"
   ];
 
-  if (listeningForm) {
-    listeningForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+  ventForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const randomMsg = automatedResponses[Math.floor(Math.random() * automatedResponses.length)];
+    
+    autoMessage.textContent = randomMsg;
+    feedbackBox.classList.remove("hidden");
+    ventForm.reset();
+  });
 
-      const messageInput = document.getElementById('student-message');
-      if (!messageInput.value.trim()) return;
-
-      formFeedback.classList.remove('hidden');
-      formFeedback.innerHTML = "<p>Enviando...</p>";
-
-      setTimeout(() => {
-        formFeedback.innerHTML = `
-          <p>Obrigado por compartilhar o que está sentindo. Você não precisa enfrentar tudo sozinho. Procure um adulto de confiança quando precisar. Seus sentimentos são importantes. 💛</p>
-        `;
-        listeningForm.reset();
-      }, 600);
-    });
-  }
-
-  if (btnMotivation && motivationDisplay) {
-    btnMotivation.addEventListener('click', () => {
-      motivationDisplay.style.opacity = '0';
-      setTimeout(() => {
-        const randomIndex = Math.floor(Math.random() * motivationalMessages.length);
-        motivationDisplay.innerHTML = `<p>"${motivationalMessages[randomIndex]}"</p>`;
-        motivationDisplay.style.opacity = '1';
-      }, 200);
-    });
-  }
-
-  /* --- 6. CARROSSEL INTERATIVO --- */
-  const track = document.getElementById('carousel-track');
-  const prevBtn = document.getElementById('carousel-prev');
-  const nextBtn = document.getElementById('carousel-next');
-  const indicators = document.querySelectorAll('.carousel-nav .indicator');
-
-  if (track && prevBtn && nextBtn) {
-    const slides = Array.from(track.children);
-    let currentIndex = 0;
-
-    const updateCarousel = (index) => {
-      track.style.transform = `translateX(-${index * 100}%)`;
-      indicators.forEach((ind, i) => {
-        ind.classList.toggle('active', i === index);
-      });
-      currentIndex = index;
-    };
-
-    nextBtn.addEventListener('click', () => {
-      const nextIndex = (currentIndex + 1) % slides.length;
-      updateCarousel(nextIndex);
-    });
-
-    prevBtn.addEventListener('click', () => {
-      const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-      updateCarousel(prevIndex);
-    });
-
-    indicators.forEach((ind, i) => {
-      ind.addEventListener('click', () => updateCarousel(i));
-    });
-  }
-
-  /* --- 7. QUIZ INTERATIVO (EXATAMENTE 5 PERGUNTAS) --- */
-  const quizData = [
+  // ==========================================================================
+  // 5. QUIZ INTERATIVO (5 PERGUNTAS SOBRE INCLUSÃO E RESPEITO)
+  // ==========================================================================
+  const quizQuestions = [
     {
-      question: "Qual atitude demonstra respeito às diferenças?",
+      question: "1. Um colega de turma possui dificuldades de mobilidade. Qual atitude demonstra respeito e inclusão?",
       options: [
-        "Fazer piadas sobre as características de alguém.",
-        "Excluir colegas que pensam diferente do grupo.",
-        "Ouvir e respeitar a perspectiva e individualidade do outro.",
-        "Ignorar uma pessoa por conta da sua origem."
+        "Ignorá-lo para não deixá-lo envergonhado.",
+        "Garantir que os caminhos estejam livres e oferecer ajuda de forma respeitosa, caso ele precise.",
+        "Fazer piadas amigáveis para tentar descontrair a situação."
       ],
-      answer: 2
+      correct: 1
     },
     {
-      question: "O que é Empatia?",
+      question: "2. O que caracteriza uma atitude de Bullying no ambiente escolar?",
       options: [
-        "Concordar com tudo o que os outros dizem.",
-        "Tentar compreender os sentimentos e experiências de outra pessoa.",
-        "Fazer as tarefas escolares pelos seus colegas.",
-        "Ignorar os conflitos ao seu redor."
+        "Uma discordância pontual de opiniões durante um debate em sala de aula.",
+        "Ações repetitivas de intencional exclusão, ofensas ou apelidos pejorativos contra alguém.",
+        "Um desentendimento passageiro durante um jogo de educação física."
       ],
-      answer: 1
+      correct: 1
     },
     {
-      question: "O que caracteriza a inclusão escolar?",
+      question: "3. Se você presenciar um colega sofrendo discriminação ou piadas ofensivas, como agir?",
       options: [
-        "Garantir que todos participem juntos com oportunidades adequadas.",
-        "Separar os alunos em turmas com base em capacidades.",
-        "Tratar todos de forma exatamente idêntica sem adaptar necessidades.",
-        "Permitir a presença sem promover a participação."
+        "Apenas observar sem intervir para não se envolver em problemas.",
+        "Rir junto com o grupo para não ser excluído também.",
+        "Acolher a vítima e reportar a situação a um professor, pedagogo ou direção da escola."
       ],
-      answer: 0
+      correct: 2
     },
     {
-      question: "O que fazer ao presenciar uma situação de bullying ou exclusão?",
+      question: "4. Qual é a melhor forma de promover a diversidade cultural e social na escola?",
       options: [
-        "Rir ou compartilhar a situação.",
-        "Apoiar a pessoa afetada e avisar um adulto de confiança.",
-        "Ignorar a situação completamente.",
-        "Incentivar as provocações."
+        "Exigir que todos pensem e se comportem da mesma maneira.",
+        "Estar aberto a ouvir, aprender e respeitar as diferentes origens, religiões e histórias dos colegas.",
+        "Evitar conversar com pessoas que tenham opiniões diferentes das suas."
       ],
-      answer: 1
+      correct: 1
     },
     {
-      question: "Quando procurar ajuda na escola ou com um responsável?",
+      question: "5. Se você estivesse passando por um momento difícil de ansiedade ou exclusão, qual seria a atitude mais segura?",
       options: [
-        "Somente em emergências médicas.",
-        "Sempre que sentir insegurança, medo, exclusão ou precisar de orientação.",
-        "Nunca, devendo guardar os problemas para si.",
-        "Apenas quando for orientado pelos colegas."
+        "Guardar tudo para si mesmo e isolar-se dos demais.",
+        "Procurar um adulto de confiança (professor, orientador ou familiar) para conversar.",
+        "Postar indiretas e desabafos com raiva nas redes sociais."
       ],
-      answer: 1
+      correct: 1
     }
   ];
 
   let currentQuestionIndex = 0;
   let score = 0;
 
-  const quizIntro = document.getElementById('quiz-intro');
-  const quizGame = document.getElementById('quiz-game');
-  const quizResults = document.getElementById('quiz-results');
-
-  const btnStartQuiz = document.getElementById('btn-start-quiz');
-  const btnNextQuestion = document.getElementById('btn-next-question');
-  const btnRestartQuiz = document.getElementById('btn-restart-quiz');
-
-  const quizCounter = document.getElementById('quiz-counter');
-  const quizScoreLive = document.getElementById('quiz-score-live');
-  const quizProgressFill = document.getElementById('quiz-progress-fill');
-  const quizQuestionText = document.getElementById('quiz-question-text');
-  const quizOptionsContainer = document.getElementById('quiz-options');
-
-  if (btnStartQuiz) {
-    btnStartQuiz.addEventListener('click', startQuiz);
-  }
-
-  function startQuiz() {
-    currentQuestionIndex = 0;
-    score = 0;
-    quizIntro.classList.add('hidden');
-    quizResults.classList.add('hidden');
-    quizGame.classList.remove('hidden');
-    loadQuestion();
-  }
+  const qQuestion = document.getElementById("quiz-question");
+  const qOptions = document.getElementById("quiz-options");
+  const nextQBtn = document.getElementById("next-q-btn");
+  const currentQNum = document.getElementById("current-q");
+  const progressFill = document.getElementById("progress-fill");
+  const quizContainer = document.getElementById("quiz-container");
+  const quizResult = document.getElementById("quiz-result");
+  const scoreElem = document.getElementById("score");
+  const scoreMsg = document.getElementById("score-message");
+  const restartBtn = document.getElementById("restart-quiz-btn");
 
   function loadQuestion() {
-    btnNextQuestion.classList.add('hidden');
-    quizOptionsContainer.innerHTML = '';
+    nextQBtn.classList.add("hidden");
+    qOptions.innerHTML = "";
+    
+    const currentQ = quizQuestions[currentQuestionIndex];
+    qQuestion.textContent = currentQ.question;
+    currentQNum.textContent = currentQuestionIndex + 1;
+    progressFill.style.width = `${((currentQuestionIndex + 1) / quizQuestions.length) * 100}%`;
 
-    const currentQ = quizData[currentQuestionIndex];
-    quizCounter.textContent = `Pergunta ${currentQuestionIndex + 1} de 5`;
-    quizScoreLive.textContent = `Pontos: ${score}`;
-    quizProgressFill.style.width = `${((currentQuestionIndex + 1) / 5) * 100}%`;
-    quizQuestionText.textContent = currentQ.question;
-
-    currentQ.options.forEach((optText, index) => {
-      const button = document.createElement('button');
-      button.classList.add('option-btn');
-      button.textContent = optText;
-      button.addEventListener('click', () => selectAnswer(index, currentQ.answer, button));
-      quizOptionsContainer.appendChild(button);
+    currentQ.options.forEach((opt, idx) => {
+      const btn = document.createElement("button");
+      btn.classList.add("option-btn");
+      btn.textContent = opt;
+      btn.addEventListener("click", () => selectOption(idx, currentQ.correct));
+      qOptions.appendChild(btn);
     });
   }
 
-  function selectAnswer(selectedIndex, correctIndex, selectedBtn) {
-    const allButtons = quizOptionsContainer.querySelectorAll('.option-btn');
-    allButtons.forEach(btn => btn.disabled = true);
+  function selectOption(selectedIdx, correctIdx) {
+    const buttons = qOptions.querySelectorAll(".option-btn");
+    buttons.forEach((btn) => btn.style.pointerEvents = "none");
 
-    if (selectedIndex === correctIndex) {
-      selectedBtn.classList.add('correct');
+    if (selectedIdx === correctIdx) {
+      buttons[selectedIdx].classList.add("correct");
       score++;
-      quizScoreLive.textContent = `Pontos: ${score}`;
     } else {
-      selectedBtn.classList.add('incorrect');
-      allButtons[correctIndex].classList.add('correct');
+      buttons[selectedIdx].classList.add("incorrect");
+      buttons[correctIdx].classList.add("correct");
     }
 
-    if (currentQuestionIndex < quizData.length - 1) {
-      btnNextQuestion.classList.remove('hidden');
-    } else {
-      setTimeout(showResults, 1000);
-    }
+    nextQBtn.classList.remove("hidden");
   }
 
-  if (btnNextQuestion) {
-    btnNextQuestion.addEventListener('click', () => {
-      currentQuestionIndex++;
+  nextQBtn.addEventListener("click", () => {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < quizQuestions.length) {
       loadQuestion();
-    });
-  }
+    } else {
+      showResults();
+    }
+  });
 
   function showResults() {
-    quizGame.classList.add('hidden');
-    quizResults.classList.remove('hidden');
+    quizContainer.classList.add("hidden");
+    quizResult.classList.remove("hidden");
+    scoreElem.textContent = score;
 
-    const finalScoreText = document.getElementById('quiz-final-score');
-    const percentageText = document.getElementById('quiz-percentage-text');
-    const feedbackMsg = document.getElementById('quiz-feedback-msg');
-
-    const percentage = Math.round((score / 5) * 100);
-
-    finalScoreText.textContent = `Você acertou ${score} de 5 perguntas!`;
-    percentageText.textContent = `${percentage}%`;
-
-    if (score <= 1) {
-      feedbackMsg.textContent = "Continue aprendendo! Respeito e empatia são aprendizados para toda a vida. 💛";
-    } else if (score <= 3) {
-      feedbackMsg.textContent = "Você está no caminho certo! Continue praticando o respeito e a empatia. 🌈";
+    if (score === 5) {
+      scoreMsg.textContent = "Excelente! Você demonstrou alto nível de empatia, respeito e conscientização sobre a inclusão!";
+    } else if (score >= 3) {
+      scoreMsg.textContent = "Muito bem! Você tem uma boa percepção sobre o respeito e apoio ao próximo na escola.";
     } else {
-      feedbackMsg.textContent = "Parabéns! Você demonstrou conhecer atitudes importantes para uma convivência respeitosa. 🫶";
+      scoreMsg.textContent = "Obrigado por participar! Aproveite os conteúdos do portal para aprender mais sobre inclusão e respeito.";
     }
   }
 
-  if (btnRestartQuiz) {
-    btnRestartQuiz.addEventListener('click', startQuiz);
-  }
+  restartBtn.addEventListener("click", () => {
+    currentQuestionIndex = 0;
+    score = 0;
+    quizResult.classList.add("hidden");
+    quizContainer.classList.remove("hidden");
+    loadQuestion();
+  });
 
-  /* --- 8. FRASE DO DIA --- */
-  const btnNewQuote = document.getElementById('btn-new-quote');
-  const dailyQuoteText = document.getElementById('daily-quote-text');
+  // Inicializar o Quiz
+  loadQuestion();
 
-  const quotes = [
-    "A inclusão acontece quando se aprende com as diferenças e não com as igualdades.",
-    "A empatia é a capacidade de enxergar o mundo com os olhos do outro.",
-    "Ninguém é igual a ninguém, e é exatamente isso que nos torna incríveis.",
-    "Respeitar o próximo é reconhecer o direito de cada um ser quem é.",
-    "Uma escola inclusiva constrói uma sociedade mais justa."
-  ];
+  // ==========================================================================
+  // 6. BOTÃO "VOLTAR AO TOPO"
+  // ==========================================================================
+  const backToTopBtn = document.getElementById("back-to-top");
 
-  if (btnNewQuote && dailyQuoteText) {
-    btnNewQuote.addEventListener('click', () => {
-      dailyQuoteText.style.opacity = '0';
-      setTimeout(() => {
-        const randomIndex = Math.floor(Math.random() * quotes.length);
-        dailyQuoteText.textContent = `"${quotes[randomIndex]}"`;
-        dailyQuoteText.style.opacity = '1';
-      }, 200);
-    });
-  }
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      backToTopBtn.style.display = "block";
+    } else {
+      backToTopBtn.style.display = "none";
+    }
+  });
 
-  /* --- 9. BOTÃO VOLTAR AO TOPO --- */
-  const btnBackToTop = document.getElementById('btn-back-to-top');
-
-  if (btnBackToTop) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        btnBackToTop.classList.add('visible');
-      } else {
-        btnBackToTop.classList.remove('visible');
-      }
-    });
-
-    btnBackToTop.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
-
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 });
