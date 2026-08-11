@@ -1,488 +1,499 @@
 /* =========================================================
-   ACOLHE+ | JAVASCRIPT PRINCIPAL
-   Menu, acessibilidade, formulário, quiz, carrossel e animações
-   ========================================================= */
+   ACOLHE+ — JAVASCRIPT
+========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
 
-    /* =====================================================
-       MENU MOBILE
-       ===================================================== */
+/* =========================================================
+   MENU MOBILE
+========================================================= */
 
-    const menuToggle = document.getElementById("menuToggle");
-    const mainNav = document.getElementById("mainNav");
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
 
-    if (menuToggle && mainNav) {
+if (menuToggle && mainNav) {
 
-        menuToggle.addEventListener("click", () => {
+    menuToggle.addEventListener("click", () => {
+        mainNav.classList.toggle("open");
 
-            const isOpen = mainNav.classList.toggle("open");
+        const aberto = mainNav.classList.contains("open");
 
-            menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute(
+            "aria-label",
+            aberto ? "Fechar menu" : "Abrir menu"
+        );
+    });
 
-            menuToggle.setAttribute(
-                "aria-label",
-                isOpen ? "Fechar menu" : "Abrir menu"
-            );
+}
 
-            menuToggle.innerHTML = isOpen
-                ? '<i class="fa-solid fa-xmark"></i>'
-                : '<i class="fa-solid fa-bars"></i>';
+
+/* =========================================================
+   BOTÃO VOLTAR AO TOPO
+========================================================= */
+
+const backToTop = document.getElementById("backToTop");
+
+if (backToTop) {
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 400) {
+            backToTop.classList.add("show");
+        } else {
+            backToTop.classList.remove("show");
+        }
+
+    });
+
+    backToTop.addEventListener("click", () => {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
         });
 
-        mainNav.querySelectorAll("a").forEach((link) => {
+    });
 
-            link.addEventListener("click", () => {
+}
 
-                mainNav.classList.remove("open");
 
-                menuToggle.setAttribute("aria-expanded", "false");
-                menuToggle.setAttribute("aria-label", "Abrir menu");
+/* =========================================================
+   ACESSIBILIDADE — TAMANHO DA FONTE
+========================================================= */
 
-                menuToggle.innerHTML =
-                    '<i class="fa-solid fa-bars"></i>';
-            });
-        });
+let fontSize = 100;
+
+const increaseFont = document.getElementById("fontIncrease");
+const decreaseFont = document.getElementById("fontDecrease");
+
+if (increaseFont) {
+
+    increaseFont.addEventListener("click", () => {
+
+        if (fontSize < 125) {
+            fontSize += 5;
+            document.documentElement.style.fontSize = `${fontSize}%`;
+        }
+
+    });
+
+}
+
+if (decreaseFont) {
+
+    decreaseFont.addEventListener("click", () => {
+
+        if (fontSize > 85) {
+            fontSize -= 5;
+            document.documentElement.style.fontSize = `${fontSize}%`;
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   ALTO CONTRASTE
+========================================================= */
+
+const contrastToggle = document.getElementById("contrastToggle");
+
+if (contrastToggle) {
+
+    contrastToggle.addEventListener("click", () => {
+
+        document.body.classList.toggle("high-contrast");
+
+    });
+
+}
+
+
+/* =========================================================
+   MODO ESCURO
+========================================================= */
+
+const darkToggle = document.getElementById("darkToggle");
+
+if (darkToggle) {
+
+    darkToggle.addEventListener("click", () => {
+
+        document.body.classList.toggle("dark-mode");
+
+    });
+
+}
+
+
+/* =========================================================
+   CARROSSEL
+========================================================= */
+
+const carouselTrack = document.getElementById("carouselTrack");
+const prevSlide = document.getElementById("prevSlide");
+const nextSlide = document.getElementById("nextSlide");
+const dots = document.querySelectorAll(".dot");
+
+let currentSlide = 0;
+
+function updateCarousel() {
+
+    if (!carouselTrack) {
+        return;
     }
 
+    carouselTrack.style.transform =
+        `translateX(-${currentSlide * 100}%)`;
 
-    /* =====================================================
-       CONTROLES DE ACESSIBILIDADE
-       ===================================================== */
+    dots.forEach((dot, index) => {
 
-    const decreaseFont = document.getElementById("decreaseFont");
-    const increaseFont = document.getElementById("increaseFont");
-    const contrastToggle = document.getElementById("contrastToggle");
-    const darkToggle = document.getElementById("darkToggle");
-
-    let fontSize = 16;
-
-    if (decreaseFont) {
-
-        decreaseFont.addEventListener("click", () => {
-
-            if (fontSize > 13) {
-                fontSize -= 1;
-                document.documentElement.style.setProperty(
-                    "--font-size-base",
-                    `${fontSize}px`
-                );
-            }
-        });
-    }
-
-    if (increaseFont) {
-
-        increaseFont.addEventListener("click", () => {
-
-            if (fontSize < 21) {
-                fontSize += 1;
-                document.documentElement.style.setProperty(
-                    "--font-size-base",
-                    `${fontSize}px`
-                );
-            }
-        });
-    }
-
-    if (contrastToggle) {
-
-        contrastToggle.addEventListener("click", () => {
-
-            const enabled =
-                document.body.classList.toggle("high-contrast");
-
-            contrastToggle.setAttribute(
-                "aria-label",
-                enabled
-                    ? "Desativar alto contraste"
-                    : "Ativar alto contraste"
-            );
-        });
-    }
-
-    if (darkToggle) {
-
-        darkToggle.addEventListener("click", () => {
-
-            const enabled =
-                document.body.classList.toggle("dark-mode");
-
-            darkToggle.innerHTML = enabled
-                ? '<i class="fa-solid fa-sun"></i>'
-                : '<i class="fa-solid fa-moon"></i>';
-
-            darkToggle.setAttribute(
-                "aria-label",
-                enabled
-                    ? "Desativar modo escuro"
-                    : "Ativar modo escuro"
-            );
-        });
-    }
-
-
-    /* =====================================================
-       BOTÃO VOLTAR AO TOPO
-       ===================================================== */
-
-    const backToTop = document.getElementById("backToTop");
-
-    if (backToTop) {
-
-        const handleScroll = () => {
-
-            if (window.scrollY > 450) {
-                backToTop.classList.add("visible");
-            } else {
-                backToTop.classList.remove("visible");
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-
-        backToTop.addEventListener("click", () => {
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        });
-
-        handleScroll();
-    }
-
-
-    /* =====================================================
-       ANIMAÇÕES DE ENTRADA
-       ===================================================== */
-
-    const revealElements =
-        document.querySelectorAll(".reveal");
-
-    if ("IntersectionObserver" in window) {
-
-        const revealObserver = new IntersectionObserver(
-            (entries, observer) => {
-
-                entries.forEach((entry) => {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.classList.add("visible");
-
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            {
-                threshold: 0.12
-            }
+        dot.classList.toggle(
+            "active",
+            index === currentSlide
         );
 
-        revealElements.forEach((element) => {
-            revealObserver.observe(element);
-        });
+    });
 
-    } else {
+}
 
-        revealElements.forEach((element) => {
-            element.classList.add("visible");
-        });
-    }
+if (nextSlide) {
 
+    nextSlide.addEventListener("click", () => {
 
-    /* =====================================================
-       FORMULÁRIO DO PORTAL DE ESCUTA
-       IMPORTANTE:
-       - Não envia para servidor
-       - Não utiliza localStorage
-       - Não utiliza cookies
-       - Não salva informações
-       ===================================================== */
+        currentSlide++;
 
-    const listeningForm =
-        document.getElementById("listeningForm");
+        if (currentSlide >= 3) {
+            currentSlide = 0;
+        }
 
-    const listeningFeedback =
-        document.getElementById("listeningFeedback");
+        updateCarousel();
 
-    if (listeningForm && listeningFeedback) {
+    });
 
-        listeningForm.addEventListener("submit", (event) => {
+}
 
-            event.preventDefault();
+if (prevSlide) {
 
-            const ventMessage =
-                document.getElementById("ventMessage");
+    prevSlide.addEventListener("click", () => {
 
-            if (!ventMessage.value.trim()) {
+        currentSlide--;
 
-                listeningFeedback.textContent =
-                    "Antes de enviar, escreva um pouco sobre o que você está sentindo.";
+        if (currentSlide < 0) {
+            currentSlide = 2;
+        }
 
-                listeningFeedback.style.background = "#fff4d8";
-                listeningFeedback.style.color = "#755b00";
+        updateCarousel();
 
-                listeningFeedback.classList.add("show");
+    });
 
-                ventMessage.focus();
+}
 
-                return;
-            }
+dots.forEach((dot, index) => {
 
-            listeningFeedback.textContent =
-                "Obrigado por compartilhar o que está sentindo. Você não precisa enfrentar tudo sozinho. Procure alguém de confiança para conversar e pedir ajuda quando precisar. Seus sentimentos são importantes.";
+    dot.addEventListener("click", () => {
 
-            listeningFeedback.style.background = "#e8f8ee";
-            listeningFeedback.style.color = "#17643a";
+        currentSlide = index;
+        updateCarousel();
 
-            listeningFeedback.classList.add("show");
+    });
 
-            /* Limpa os campos.
-               Nenhuma informação é armazenada. */
-            listeningForm.reset();
-
-        });
-    }
+});
 
 
-    /* =====================================================
-       CARROSSEL
-       ===================================================== */
+/* =========================================================
+   CARROSSEL AUTOMÁTICO
+========================================================= */
 
-    const slides =
-        document.querySelectorAll(".carousel-slide");
+if (carouselTrack) {
 
-    const dots =
-        document.querySelectorAll(".carousel-dot");
+    setInterval(() => {
 
-    const previousButton =
-        document.getElementById("carouselPrev");
+        currentSlide++;
+
+        if (currentSlide >= 3) {
+            currentSlide = 0;
+        }
+
+        updateCarousel();
+
+    }, 6000);
+
+}
+
+
+/* =========================================================
+   PORTAL DE ESCUTA
+========================================================= */
+
+const listeningForm = document.getElementById("listeningForm");
+const successMessage = document.getElementById("successMessage");
+const newMessage = document.getElementById("newMessage");
+
+if (listeningForm) {
+
+    listeningForm.addEventListener("submit", (event) => {
+
+        event.preventDefault();
+
+        listeningForm.style.display = "none";
+
+        successMessage.classList.add("show");
+
+    });
+
+}
+
+if (newMessage) {
+
+    newMessage.addEventListener("click", () => {
+
+        successMessage.classList.remove("show");
+
+        listeningForm.reset();
+
+        listeningForm.style.display = "block";
+
+    });
+
+}
+
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+const quizForm = document.getElementById("quizForm");
+
+if (quizForm) {
+
+    const questions =
+        document.querySelectorAll(".question");
 
     const nextButton =
-        document.getElementById("carouselNext");
+        document.getElementById("nextQuestion");
 
-    if (
-        slides.length &&
-        dots.length &&
-        previousButton &&
-        nextButton
-    ) {
+    const previousButton =
+        document.getElementById("previousQuestion");
 
-        let currentSlide = 0;
-        let carouselTimer;
+    const finishButton =
+        document.getElementById("finishQuiz");
 
-        const showSlide = (index) => {
+    const currentQuestion =
+        document.getElementById("currentQuestion");
 
-            currentSlide =
-                (index + slides.length) % slides.length;
-
-            slides.forEach((slide, i) => {
-                slide.classList.toggle(
-                    "active",
-                    i === currentSlide
-                );
-            });
-
-            dots.forEach((dot, i) => {
-                dot.classList.toggle(
-                    "active",
-                    i === currentSlide
-                );
-            });
-        };
-
-        const startCarousel = () => {
-
-            clearInterval(carouselTimer);
-
-            carouselTimer = setInterval(() => {
-
-                showSlide(currentSlide + 1);
-
-            }, 6000);
-        };
-
-        previousButton.addEventListener("click", () => {
-
-            showSlide(currentSlide - 1);
-            startCarousel();
-        });
-
-        nextButton.addEventListener("click", () => {
-
-            showSlide(currentSlide + 1);
-            startCarousel();
-        });
-
-        dots.forEach((dot, index) => {
-
-            dot.addEventListener("click", () => {
-
-                showSlide(index);
-                startCarousel();
-            });
-        });
-
-        showSlide(0);
-        startCarousel();
-    }
-
-
-    /* =====================================================
-       QUIZ
-       ===================================================== */
-
-    const quizForm =
-        document.getElementById("quizForm");
+    const progressBar =
+        document.getElementById("quizProgress");
 
     const quizResult =
         document.getElementById("quizResult");
 
-    const resetQuiz =
-        document.getElementById("resetQuiz");
+    const scoreElement =
+        document.getElementById("score");
 
-    if (quizForm && quizResult) {
+    const resultMessage =
+        document.getElementById("resultMessage");
 
-        const correctAnswers = {
-            question1: "c",
-            question2: "b",
-            question3: "d",
-            question4: "c",
-            question5: "b"
-        };
+    const restartButton =
+        document.getElementById("restartQuiz");
 
-        quizForm.addEventListener("submit", (event) => {
+    let questionIndex = 0;
 
-            event.preventDefault();
+    const correctAnswers = [
+        "C",
+        "B",
+        "C",
+        "B",
+        "C"
+    ];
 
-            let score = 0;
 
-            const totalQuestions =
-                Object.keys(correctAnswers).length;
+    function showQuestion(index) {
 
-            Object.entries(correctAnswers).forEach(
-                ([question, correctAnswer]) => {
+        questions.forEach((question, i) => {
 
-                    const selected =
-                        quizForm.querySelector(
-                            `input[name="${question}"]:checked`
-                        );
-
-                    if (
-                        selected &&
-                        selected.value === correctAnswer
-                    ) {
-                        score++;
-                    }
-                }
+            question.classList.toggle(
+                "active-question",
+                i === index
             );
 
-            let message = "";
-            let icon = "fa-heart";
-
-            if (score <= 1) {
-
-                message =
-                    "Continue aprendendo! Respeito e empatia são aprendizados para toda a vida. 💛";
-
-                icon = "fa-seedling";
-
-            } else if (score <= 3) {
-
-                message =
-                    "Você está no caminho certo! Continue praticando o respeito e a empatia. 🌈";
-
-                icon = "fa-road";
-
-            } else {
-
-                message =
-                    "Parabéns! Você demonstrou conhecer atitudes importantes para uma convivência respeitosa. 🫶";
-
-                icon = "fa-hands-holding-child";
-            }
-
-            quizResult.hidden = false;
-
-            quizResult.innerHTML = `
-                <div class="result-icon">
-                    <i class="fa-solid ${icon}"></i>
-                </div>
-
-                <h2>${score}/${totalQuestions} acertos!</h2>
-
-                <p>${message}</p>
-            `;
-
-            quizResult.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
         });
-    }
 
-    if (resetQuiz && quizForm && quizResult) {
+        currentQuestion.textContent = index + 1;
 
-        resetQuiz.addEventListener("click", () => {
+        progressBar.style.width =
+            `${((index + 1) / questions.length) * 100}%`;
 
-            quizForm.reset();
+        previousButton.style.visibility =
+            index === 0 ? "hidden" : "visible";
 
-            quizResult.hidden = true;
-            quizResult.innerHTML = "";
+        if (index === questions.length - 1) {
 
-            const firstQuestion =
-                document.querySelector(".question-card");
+            nextButton.style.display = "none";
+            finishButton.style.display = "inline-flex";
 
-            if (firstQuestion) {
+        } else {
 
-                firstQuestion.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-            }
-        });
+            nextButton.style.display = "inline-flex";
+            finishButton.style.display = "none";
+
+        }
+
     }
 
 
-    /* =====================================================
-       FECHA MENU AO CLICAR FORA
-       ===================================================== */
+    function respostaAtual() {
 
-    document.addEventListener("click", (event) => {
+        const pergunta =
+            questions[questionIndex];
 
-        if (!mainNav || !menuToggle) {
+        return pergunta.querySelector(
+            "input[type='radio']:checked"
+        );
+
+    }
+
+
+    nextButton.addEventListener("click", () => {
+
+        if (!respostaAtual()) {
+
+            alert("Escolha uma alternativa antes de continuar. 💛");
             return;
+
         }
 
-        const clickedInsideMenu =
-            mainNav.contains(event.target);
+        if (questionIndex < questions.length - 1) {
 
-        const clickedToggle =
-            menuToggle.contains(event.target);
+            questionIndex++;
+            showQuestion(questionIndex);
 
-        if (
-            mainNav.classList.contains("open") &&
-            !clickedInsideMenu &&
-            !clickedToggle
-        ) {
-
-            mainNav.classList.remove("open");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            menuToggle.setAttribute(
-                "aria-label",
-                "Abrir menu"
-            );
-
-            menuToggle.innerHTML =
-                '<i class="fa-solid fa-bars"></i>';
         }
+
     });
+
+
+    previousButton.addEventListener("click", () => {
+
+        if (questionIndex > 0) {
+
+            questionIndex--;
+            showQuestion(questionIndex);
+
+        }
+
+    });
+
+
+    quizForm.addEventListener("submit", (event) => {
+
+        event.preventDefault();
+
+        if (!respostaAtual()) {
+
+            alert("Escolha uma alternativa antes de ver o resultado. 💛");
+            return;
+
+        }
+
+        let score = 0;
+
+        correctAnswers.forEach((answer, index) => {
+
+            const selected =
+                quizForm.querySelector(
+                    `input[name="q${index + 1}"]:checked`
+                );
+
+            if (selected && selected.value === answer) {
+                score++;
+            }
+
+        });
+
+
+        scoreElement.textContent = score;
+
+
+        if (score <= 1) {
+
+            resultMessage.textContent =
+                "Continue aprendendo! Respeito e empatia são aprendizados para toda a vida. 💛";
+
+        } else if (score <= 3) {
+
+            resultMessage.textContent =
+                "Você está no caminho certo! Continue praticando o respeito e a empatia. 🌈";
+
+        } else {
+
+            resultMessage.textContent =
+                "Parabéns! Você demonstrou conhecer atitudes importantes para uma convivência respeitosa. 🫶";
+
+        }
+
+
+        quizForm.style.display = "none";
+        quizResult.classList.add("show");
+
+    });
+
+
+    restartButton.addEventListener("click", () => {
+
+        quizForm.reset();
+
+        questionIndex = 0;
+
+        quizResult.classList.remove("show");
+
+        quizForm.style.display = "block";
+
+        showQuestion(0);
+
+    });
+
+
+    showQuestion(0);
+
+}
+
+
+/* =========================================================
+   ANIMAÇÃO DE ENTRADA DAS SEÇÕES
+========================================================= */
+
+const observer =
+    new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+
+                }
+
+            });
+
+        },
+        {
+            threshold: .1
+        }
+    );
+
+
+document.querySelectorAll(
+    ".feature-card, .reference-card, .motivation-grid article"
+).forEach(element => {
+
+    element.style.opacity = "0";
+    element.style.transform = "translateY(20px)";
+    element.style.transition =
+        "opacity .6s ease, transform .6s ease";
+
+    observer.observe(element);
 
 });
