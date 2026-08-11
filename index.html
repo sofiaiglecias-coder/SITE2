@@ -1,267 +1,667 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portal de Apoio ao Estudante — Inclusão, respeito e acolhimento para todos.">
-    <title>Acolhe+ | Portal de Apoio ao Estudante</title>
 
-    <link rel="stylesheet" href="css/style.css">
+```
+<meta
+    name="description"
+    content="Acolhe+ — Portal de Apoio ao Estudante. Um espaço de inclusão, respeito, diversidade e acolhimento."
+>
+
+<meta name="theme-color" content="#FFD43B">
+
+<title>Acolhe+ | Portal de Apoio ao Estudante</title>
+
+<!-- CSS principal -->
+<link rel="stylesheet" href="css/style.css">
+```
+
 </head>
 
 <body>
 
-    <!-- Barra de acessibilidade -->
-    <div class="accessibility-bar">
-        <div class="accessibility-content">
-            <span>Acessibilidade:</span>
+```
+<!-- =====================================================
+     ACESSIBILIDADE
+====================================================== -->
 
-            <button id="fontIncrease" aria-label="Aumentar tamanho da fonte">
-                A+
+<div class="accessibility-bar">
+    <div class="container accessibility-content">
+
+        <div class="accessibility-title">
+            <span class="accessibility-icon">♿</span>
+            <span>Acessibilidade</span>
+        </div>
+
+        <div class="accessibility-controls">
+
+            <button
+                type="button"
+                id="fontDecrease"
+                class="accessibility-btn"
+                aria-label="Diminuir tamanho da fonte"
+            >
+                <span>A</span><small>−</small>
             </button>
 
-            <button id="fontDecrease" aria-label="Diminuir tamanho da fonte">
-                A-
+            <button
+                type="button"
+                id="fontIncrease"
+                class="accessibility-btn"
+                aria-label="Aumentar tamanho da fonte"
+            >
+                <span>A</span><small>+</small>
             </button>
 
-            <button id="contrastToggle" aria-label="Ativar alto contraste">
-                ◐ Contraste
+            <button
+                type="button"
+                id="contrastToggle"
+                class="accessibility-btn accessibility-text-btn"
+                aria-label="Ativar alto contraste"
+            >
+                ◐ <span>Contraste</span>
             </button>
 
-            <button id="darkToggle" aria-label="Ativar modo escuro">
-                ◑ Escuro
+            <button
+                type="button"
+                id="darkToggle"
+                class="accessibility-btn accessibility-text-btn"
+                aria-label="Ativar modo escuro"
+            >
+                ◑ <span>Modo escuro</span>
             </button>
+
         </div>
     </div>
+</div>
 
-    <!-- Header -->
-    <header class="header">
 
-        <a href="index.html" class="logo">
-            <span class="logo-icon">+</span>
-            <span>
-                <strong>Acolhe<span>+</span></strong>
-                <small>Portal de Apoio ao Estudante</small>
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header class="header" id="header">
+
+    <div class="container header-inner">
+
+        <a href="index.html" class="logo" aria-label="Acolhe+ - Página inicial">
+
+            <span class="logo-mark">
+                <span>+</span>
             </span>
+
+            <span class="logo-text">
+                <strong>
+                    Acolhe<span>+</span>
+                </strong>
+
+                <small>
+                    Portal de Apoio ao Estudante
+                </small>
+            </span>
+
         </a>
 
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
-            ☰
+
+        <button
+            type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="mainNav"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
         </button>
 
-        <nav class="nav" id="mainNav">
-            <a href="index.html" class="active">Início</a>
-            <a href="escuta.html">Portal de Escuta</a>
-            <a href="quiz.html">Quiz</a>
-            <a href="referencias.html">Referências</a>
+
+        <nav class="nav" id="mainNav" aria-label="Navegação principal">
+
+            <a href="index.html" class="nav-link active">
+                <span>01</span>
+                Início
+            </a>
+
+            <a href="escuta.html" class="nav-link">
+                <span>02</span>
+                Portal de Escuta
+            </a>
+
+            <a href="quiz.html" class="nav-link">
+                <span>03</span>
+                Quiz
+            </a>
+
+            <a href="referencias.html" class="nav-link">
+                <span>04</span>
+                Referências
+            </a>
+
+            <a href="escuta.html" class="nav-cta">
+                Preciso conversar
+                <span>↗</span>
+            </a>
+
         </nav>
 
-    </header>
+    </div>
 
-    <main>
+</header>
 
-        <!-- HERO -->
-        <section class="hero">
 
+<main>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero" id="inicio">
+
+        <!-- Elementos decorativos -->
+        <div class="hero-decoration hero-decoration-one"></div>
+        <div class="hero-decoration hero-decoration-two"></div>
+        <div class="hero-decoration hero-decoration-three"></div>
+
+        <div class="hero-grid-pattern"></div>
+
+
+        <div class="container hero-container">
+
+            <!-- CONTEÚDO -->
             <div class="hero-content">
 
-                <div class="hero-badge">
-                    <span>💛</span>
-                    Um espaço feito para você
+                <div class="hero-eyebrow">
+                    <span class="eyebrow-dot"></span>
+
+                    <span>
+                        UM ESPAÇO FEITO PARA VOCÊ
+                    </span>
+
+                    <span class="eyebrow-heart">♥</span>
                 </div>
 
-                <h1>
+
+                <h1 class="hero-title">
+
                     Portal de Apoio ao
-                    <span>Estudante</span>
+
+                    <span class="gradient-text">
+                        Estudante.
+                    </span>
+
                 </h1>
 
+
                 <p class="hero-subtitle">
-                    Inclusão, respeito e acolhimento para todos.
+                    Inclusão, respeito e acolhimento
+                    <strong>para todos.</strong>
                 </p>
 
-                <p class="hero-text">
-                    Cada pessoa é única. Respeitar as diferenças é construir
-                    uma escola onde todos possam se sentir seguros,
-                    valorizados e acolhidos.
+
+                <p class="hero-description">
+                    Cada pessoa é única. Respeitar as diferenças é
+                    construir uma escola onde todos possam se sentir
+                    seguros, valorizados e acolhidos.
                 </p>
 
-                <div class="hero-buttons">
 
-                    <a href="#inclusao" class="btn btn-primary">
-                        Quero conhecer o portal
-                        <span>→</span>
+                <div class="hero-actions">
+
+                    <a
+                        href="#inclusao"
+                        class="btn btn-primary btn-large"
+                    >
+                        <span>Conhecer o portal</span>
+                        <span class="btn-icon">→</span>
                     </a>
 
-                    <a href="escuta.html" class="btn btn-secondary">
-                        💬 Preciso conversar
+                    <a
+                        href="escuta.html"
+                        class="btn btn-outline btn-large"
+                    >
+                        <span class="btn-play-icon">●</span>
+                        Preciso conversar
                     </a>
 
                 </div>
 
-                <div class="hero-stats">
 
-                    <div>
-                        <strong>100%</strong>
-                        <span>Acolhimento</span>
+                <!-- Indicadores -->
+                <div class="hero-trust">
+
+                    <div class="trust-avatars">
+
+                        <span class="avatar avatar-yellow">💛</span>
+                        <span class="avatar avatar-pink">🫶</span>
+                        <span class="avatar avatar-purple">🌈</span>
+                        <span class="avatar avatar-orange">🤝</span>
+
                     </div>
 
-                    <div>
-                        <strong>∞</strong>
-                        <span>Respeito</span>
-                    </div>
-
-                    <div>
-                        <strong>1</strong>
-                        <span>Grande comunidade</span>
+                    <div class="trust-text">
+                        <strong>Um espaço para todos</strong>
+                        <span>
+                            Respeito começa com pequenas atitudes.
+                        </span>
                     </div>
 
                 </div>
 
             </div>
 
-            <!-- Ilustração -->
+
+            <!-- VISUAL -->
             <div class="hero-visual">
 
-                <div class="floating-card card-one">
-                    💛
-                    <span>Respeito</span>
-                </div>
+                <div class="visual-glow"></div>
 
-                <div class="floating-card card-two">
-                    🌈
-                    <span>Diversidade</span>
-                </div>
 
-                <div class="floating-card card-three">
-                    🫶
-                    <span>Acolhimento</span>
-                </div>
+                <!-- Card superior -->
+                <div class="floating-card floating-card-top">
 
-                <div class="illustration">
-
-                    <div class="sun"></div>
-
-                    <div class="person person-one">
-                        <div class="head"></div>
-                        <div class="body"></div>
-                        <div class="arm left"></div>
-                        <div class="arm right"></div>
+                    <div class="floating-card-icon">
+                        ♥
                     </div>
 
-                    <div class="person person-two">
-                        <div class="head"></div>
-                        <div class="body"></div>
-                        <div class="arm left"></div>
-                        <div class="arm right"></div>
+                    <div>
+                        <strong>Você importa</strong>
+                        <span>Seu jeito de ser tem valor.</span>
                     </div>
 
-                    <div class="person person-three">
-                        <div class="head"></div>
-                        <div class="body"></div>
-                        <div class="arm left"></div>
-                        <div class="arm right"></div>
+                </div>
+
+
+                <!-- Ilustração principal -->
+                <div class="hero-art">
+
+                    <div class="art-circle art-circle-back"></div>
+
+                    <div class="art-circle art-circle-front"></div>
+
+
+                    <!-- Sol -->
+                    <div class="art-sun">
+                        <span>✦</span>
                     </div>
 
-                    <div class="heart">♥</div>
 
+                    <!-- Pessoas -->
+                    <div class="person person-left">
+
+                        <div class="person-hair"></div>
+
+                        <div class="person-head"></div>
+
+                        <div class="person-body"></div>
+
+                        <div class="person-arm person-arm-left"></div>
+                        <div class="person-arm person-arm-right"></div>
+
+                        <div class="person-leg person-leg-left"></div>
+                        <div class="person-leg person-leg-right"></div>
+
+                    </div>
+
+
+                    <div class="person person-center">
+
+                        <div class="person-hair"></div>
+
+                        <div class="person-head"></div>
+
+                        <div class="person-body"></div>
+
+                        <div class="person-arm person-arm-left"></div>
+                        <div class="person-arm person-arm-right"></div>
+
+                        <div class="person-leg person-leg-left"></div>
+                        <div class="person-leg person-leg-right"></div>
+
+                    </div>
+
+
+                    <div class="person person-right">
+
+                        <div class="person-hair"></div>
+
+                        <div class="person-head"></div>
+
+                        <div class="person-body"></div>
+
+                        <div class="person-arm person-arm-left"></div>
+                        <div class="person-arm person-arm-right"></div>
+
+                        <div class="person-leg person-leg-left"></div>
+                        <div class="person-leg person-leg-right"></div>
+
+                    </div>
+
+
+                    <!-- Coração -->
+                    <div class="art-heart">
+                        ♥
+                    </div>
+
+
+                    <!-- Estrelas -->
+                    <span class="art-star star-one">✦</span>
+                    <span class="art-star star-two">✦</span>
+                    <span class="art-star star-three">✦</span>
+
+                </div>
+
+
+                <!-- Cards flutuantes -->
+
+                <div class="floating-card floating-card-left">
+
+                    <span class="floating-icon">🌈</span>
+
+                    <div>
+                        <strong>Diversidade</strong>
+                        <span>Celebrar nossas diferenças.</span>
+                    </div>
+
+                </div>
+
+
+                <div class="floating-card floating-card-right">
+
+                    <span class="floating-icon">🤝</span>
+
+                    <div>
+                        <strong>Juntos</strong>
+                        <span>Ninguém precisa caminhar sozinho.</span>
+                    </div>
+
+                </div>
+
+
+                <div class="hero-scroll-indicator">
+                    <span>SCROLL</span>
+                    <i></i>
                 </div>
 
             </div>
 
-        </section>
+        </div>
 
-        <!-- FRASE -->
-        <section class="quote-section">
+    </section>
 
-            <div class="quote-icon">“</div>
 
-            <div>
-                <p>
-                    “Não precisamos ser iguais para caminhar juntos.”
+    <!-- =====================================================
+         FRASE DE IMPACTO
+    ====================================================== -->
+
+    <section class="quote-section">
+
+        <div class="container quote-container">
+
+            <div class="quote-symbol">
+                “
+            </div>
+
+            <div class="quote-content">
+
+                <p class="quote-main">
+                    Não precisamos ser iguais
+                    <span>para caminhar juntos.</span>
                 </p>
 
-                <span>
-                    Inclusão começa quando aprendemos a respeitar aquilo
-                    que nos torna diferentes.
-                </span>
+                <p class="quote-description">
+                    Inclusão começa quando aprendemos a respeitar
+                    aquilo que nos torna diferentes.
+                </p>
+
             </div>
 
-        </section>
 
-        <!-- INCLUSÃO -->
-        <section class="section" id="inclusao">
+            <div class="quote-decoration">
+                <span>♥</span>
+                <span>♥</span>
+                <span>♥</span>
+            </div>
 
-            <div class="section-heading">
+        </div>
 
-                <div>
-                    <span class="section-label">CONHEÇA</span>
+    </section>
+
+
+    <!-- =====================================================
+         INCLUSÃO
+    ====================================================== -->
+
+    <section
+        class="section inclusion-section"
+        id="inclusao"
+    >
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <div class="section-heading">
+
+                    <span class="section-kicker">
+                        <span></span>
+                        ENTENDA
+                    </span>
 
                     <h2>
                         O que significa
                         <span>inclusão?</span>
                     </h2>
+
+                </div>
+
+
+                <div class="section-intro">
+
+                    <span class="intro-number">
+                        01
+                    </span>
+
+                    <p>
+                        Inclusão significa garantir que todas as
+                        pessoas sejam respeitadas, tenham oportunidades
+                        e possam participar dos espaços sociais e
+                        escolares, independentemente de suas diferenças.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Cards -->
+            <div class="feature-grid">
+
+
+                <article class="feature-card feature-yellow">
+
+                    <div class="feature-card-top">
+
+                        <span class="feature-number">
+                            01
+                        </span>
+
+                        <div class="feature-icon">
+                            🤝
+                        </div>
+
+                    </div>
+
+                    <div class="feature-card-content">
+
+                        <h3>
+                            Respeito
+                        </h3>
+
+                        <p>
+                            Tratar cada pessoa com dignidade,
+                            independentemente de suas características,
+                            escolhas ou opiniões.
+                        </p>
+
+                    </div>
+
+                    <div class="feature-card-arrow">
+                        ↗
+                    </div>
+
+                </article>
+
+
+                <article class="feature-card feature-pink">
+
+                    <div class="feature-card-top">
+
+                        <span class="feature-number">
+                            02
+                        </span>
+
+                        <div class="feature-icon">
+                            💛
+                        </div>
+
+                    </div>
+
+                    <div class="feature-card-content">
+
+                        <h3>
+                            Empatia
+                        </h3>
+
+                        <p>
+                            Tentar compreender os sentimentos,
+                            experiências e perspectivas de outras
+                            pessoas.
+                        </p>
+
+                    </div>
+
+                    <div class="feature-card-arrow">
+                        ↗
+                    </div>
+
+                </article>
+
+
+                <article class="feature-card feature-purple">
+
+                    <div class="feature-card-top">
+
+                        <span class="feature-number">
+                            03
+                        </span>
+
+                        <div class="feature-icon">
+                            🌈
+                        </div>
+
+                    </div>
+
+                    <div class="feature-card-content">
+
+                        <h3>
+                            Diversidade
+                        </h3>
+
+                        <p>
+                            Valorizar diferentes culturas, histórias,
+                            ideias, corpos e formas de ser.
+                        </p>
+
+                    </div>
+
+                    <div class="feature-card-arrow">
+                        ↗
+                    </div>
+
+                </article>
+
+
+                <article class="feature-card feature-orange">
+
+                    <div class="feature-card-top">
+
+                        <span class="feature-number">
+                            04
+                        </span>
+
+                        <div class="feature-icon">
+                            🫶
+                        </div>
+
+                    </div>
+
+                    <div class="feature-card-content">
+
+                        <h3>
+                            Acolhimento
+                        </h3>
+
+                        <p>
+                            Criar um ambiente onde todos possam se
+                            sentir seguros, ouvidos e valorizados.
+                        </p>
+
+                    </div>
+
+                    <div class="feature-card-arrow">
+                        ↗
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- Mini CTA -->
+            <div class="inclusion-bottom">
+
+                <div class="inclusion-bottom-icon">
+                    ✦
                 </div>
 
                 <p>
-                    Inclusão significa garantir que todas as pessoas sejam
-                    respeitadas, tenham oportunidades e possam participar
-                    dos espaços sociais e escolares.
+                    <strong>Uma escola inclusiva</strong>
+                    começa quando cada pessoa entende que
+                    sua presença faz diferença.
                 </p>
 
-            </div>
-
-            <div class="feature-grid">
-
-                <article class="feature-card yellow">
-                    <div class="feature-icon">🤝</div>
-                    <span class="number">01</span>
-                    <h3>Respeito</h3>
-                    <p>
-                        Tratar cada pessoa com dignidade, independente de
-                        suas características ou opiniões.
-                    </p>
-                </article>
-
-                <article class="feature-card pink">
-                    <div class="feature-icon">💛</div>
-                    <span class="number">02</span>
-                    <h3>Empatia</h3>
-                    <p>
-                        Tentar compreender os sentimentos e experiências
-                        de outras pessoas.
-                    </p>
-                </article>
-
-                <article class="feature-card purple">
-                    <div class="feature-icon">🌈</div>
-                    <span class="number">03</span>
-                    <h3>Diversidade</h3>
-                    <p>
-                        Valorizar as diferentes culturas, histórias,
-                        ideias, corpos e formas de ser.
-                    </p>
-                </article>
-
-                <article class="feature-card orange">
-                    <div class="feature-icon">🫶</div>
-                    <span class="number">04</span>
-                    <h3>Acolhimento</h3>
-                    <p>
-                        Criar um ambiente onde todos possam se sentir
-                        seguros, ouvidos e valorizados.
-                    </p>
-                </article>
+                <span class="inclusion-line"></span>
 
             </div>
 
-        </section>
+        </div>
 
-        <!-- RESPEITO -->
-        <section class="respect-section">
+    </section>
+
+
+    <!-- =====================================================
+         RESPEITO FAZ A DIFERENÇA
+    ====================================================== -->
+
+    <section class="respect-section">
+
+        <div class="respect-background-shape"></div>
+
+        <div class="container respect-container">
+
 
             <div class="respect-content">
 
-                <span class="section-label">PEQUENAS ATITUDES</span>
+                <span class="section-kicker light">
+                    <span></span>
+                    PEQUENAS ATITUDES
+                </span>
 
                 <h2>
                     Respeito faz
@@ -269,195 +669,596 @@
                 </h2>
 
                 <p>
-                    Nossas atitudes podem transformar o ambiente em que
-                    vivemos. Confira algumas maneiras simples de contribuir
-                    para uma convivência mais saudável.
+                    Nossas atitudes podem transformar o ambiente em
+                    que vivemos. Pequenas ações ajudam a construir
+                    uma convivência mais saudável, segura e acolhedora.
                 </p>
 
-                <a href="quiz.html" class="btn btn-light">
-                    Testar meus conhecimentos →
+
+                <a
+                    href="quiz.html"
+                    class="btn btn-white"
+                >
+                    <span>Testar meus conhecimentos</span>
+                    <span>→</span>
                 </a>
 
             </div>
 
-            <div class="attitudes">
 
-                <div class="attitude">
-                    <span>✓</span>
-                    <p>Escutar sem julgar.</p>
+            <div class="attitudes-wrapper">
+
+                <div class="attitudes-heading">
+                    <span>COMO PRATICAR?</span>
+                    <strong>6 atitudes simples</strong>
                 </div>
 
-                <div class="attitude">
-                    <span>✓</span>
-                    <p>Respeitar opiniões diferentes.</p>
-                </div>
 
-                <div class="attitude">
-                    <span>✓</span>
-                    <p>Não fazer piadas com características de alguém.</p>
-                </div>
+                <div class="attitudes">
 
-                <div class="attitude">
-                    <span>✓</span>
-                    <p>Ajudar quem está precisando.</p>
-                </div>
+                    <div class="attitude">
+                        <span class="attitude-check">✓</span>
+                        <p>Escutar sem julgar.</p>
+                        <span class="attitude-number">01</span>
+                    </div>
 
-                <div class="attitude">
-                    <span>✓</span>
-                    <p>Combater atitudes preconceituosas.</p>
-                </div>
+                    <div class="attitude">
+                        <span class="attitude-check">✓</span>
+                        <p>Respeitar opiniões diferentes.</p>
+                        <span class="attitude-number">02</span>
+                    </div>
 
-                <div class="attitude">
-                    <span>✓</span>
-                    <p>Procurar ajuda quando necessário.</p>
+                    <div class="attitude">
+                        <span class="attitude-check">✓</span>
+                        <p>Não fazer piadas com características de alguém.</p>
+                        <span class="attitude-number">03</span>
+                    </div>
+
+                    <div class="attitude">
+                        <span class="attitude-check">✓</span>
+                        <p>Ajudar quem está precisando.</p>
+                        <span class="attitude-number">04</span>
+                    </div>
+
+                    <div class="attitude">
+                        <span class="attitude-check">✓</span>
+                        <p>Combater atitudes preconceituosas.</p>
+                        <span class="attitude-number">05</span>
+                    </div>
+
+                    <div class="attitude">
+                        <span class="attitude-check">✓</span>
+                        <p>Procurar ajuda quando necessário.</p>
+                        <span class="attitude-number">06</span>
+                    </div>
+
                 </div>
 
             </div>
 
-        </section>
+        </div>
 
-        <!-- CARROSSEL -->
-        <section class="section carousel-section">
+    </section>
 
-            <div class="section-heading centered">
 
-                <div>
-                    <span class="section-label">JUNTOS SOMOS MAIS</span>
+    <!-- =====================================================
+         NÚMEROS / IMPACTO
+    ====================================================== -->
+
+    <section class="impact-section">
+
+        <div class="container impact-grid">
+
+            <div class="impact-card">
+
+                <span class="impact-icon">
+                    💛
+                </span>
+
+                <strong>
+                    Respeito
+                </strong>
+
+                <p>
+                    Toda pessoa merece ser tratada com dignidade.
+                </p>
+
+            </div>
+
+
+            <div class="impact-card">
+
+                <span class="impact-icon">
+                    🌈
+                </span>
+
+                <strong>
+                    Diversidade
+                </strong>
+
+                <p>
+                    Nossas diferenças tornam a comunidade mais rica.
+                </p>
+
+            </div>
+
+
+            <div class="impact-card">
+
+                <span class="impact-icon">
+                    🫶
+                </span>
+
+                <strong>
+                    Acolhimento
+                </strong>
+
+                <p>
+                    Todos merecem encontrar um espaço seguro.
+                </p>
+
+            </div>
+
+
+            <div class="impact-card">
+
+                <span class="impact-icon">
+                    💬
+                </span>
+
+                <strong>
+                    Escuta
+                </strong>
+
+                <p>
+                    Falar e pedir ajuda também é um ato de coragem.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CARROSSEL
+    ====================================================== -->
+
+    <section class="section carousel-section">
+
+        <div class="container">
+
+            <div class="section-header carousel-header">
+
+                <div class="section-heading">
+
+                    <span class="section-kicker">
+                        <span></span>
+                        JUNTOS SOMOS MAIS
+                    </span>
 
                     <h2>
                         Um espaço para
                         <span>todos.</span>
                     </h2>
+
                 </div>
 
                 <p>
-                    Diversidade, amizade e respeito tornam nossa comunidade
-                    mais forte.
+                    Diversidade, amizade e respeito tornam
+                    nossa comunidade mais forte.
                 </p>
 
             </div>
 
-            <div class="carousel">
 
-                <div class="carousel-track" id="carouselTrack">
+            <div
+                class="carousel"
+                id="carousel"
+                aria-label="Carrossel sobre inclusão"
+            >
 
-                    <div class="slide slide-one">
-                        <div class="slide-content">
-                            <span>🌈</span>
-                            <h3>Diversidade</h3>
-                            <p>
-                                Diferentes histórias tornam nosso mundo
-                                mais interessante.
-                            </p>
+                <div
+                    class="carousel-track"
+                    id="carouselTrack"
+                >
+
+
+                    <!-- SLIDE 1 -->
+                    <article class="slide slide-one">
+
+                        <div class="slide-number">
+                            01 / 03
                         </div>
-                    </div>
 
-                    <div class="slide slide-two">
+                        <div class="slide-illustration">
+                            🌈
+                        </div>
+
                         <div class="slide-content">
-                            <span>🫶</span>
-                            <h3>Amizade</h3>
+
+                            <span class="slide-label">
+                                VALORIZAR
+                            </span>
+
+                            <h3>
+                                Diversidade
+                            </h3>
+
+                            <p>
+                                Diferentes histórias, culturas,
+                                ideias e formas de ser tornam
+                                nosso mundo mais interessante.
+                            </p>
+
+                        </div>
+
+                        <span class="slide-decoration">
+                            ✦
+                        </span>
+
+                    </article>
+
+
+                    <!-- SLIDE 2 -->
+                    <article class="slide slide-two">
+
+                        <div class="slide-number">
+                            02 / 03
+                        </div>
+
+                        <div class="slide-illustration">
+                            🫶
+                        </div>
+
+                        <div class="slide-content">
+
+                            <span class="slide-label">
+                                CONECTAR
+                            </span>
+
+                            <h3>
+                                Amizade
+                            </h3>
+
                             <p>
                                 Ninguém precisa caminhar sozinho.
+                                Uma palavra, um gesto ou uma escuta
+                                podem fazer diferença.
                             </p>
-                        </div>
-                    </div>
 
-                    <div class="slide slide-three">
-                        <div class="slide-content">
-                            <span>💛</span>
-                            <h3>Acolhimento</h3>
-                            <p>
-                                Todos merecem um lugar onde possam ser
-                                quem são.
-                            </p>
                         </div>
-                    </div>
+
+                        <span class="slide-decoration">
+                            ♥
+                        </span>
+
+                    </article>
+
+
+                    <!-- SLIDE 3 -->
+                    <article class="slide slide-three">
+
+                        <div class="slide-number">
+                            03 / 03
+                        </div>
+
+                        <div class="slide-illustration">
+                            💛
+                        </div>
+
+                        <div class="slide-content">
+
+                            <span class="slide-label">
+                                ACOLHER
+                            </span>
+
+                            <h3>
+                                Acolhimento
+                            </h3>
+
+                            <p>
+                                Todos merecem um lugar onde possam
+                                ser quem são, sem medo de julgamentos
+                                ou preconceitos.
+                            </p>
+
+                        </div>
+
+                        <span class="slide-decoration">
+                            ✦
+                        </span>
+
+                    </article>
 
                 </div>
 
-                <button class="carousel-btn prev" id="prevSlide" aria-label="Imagem anterior">
-                    ‹
+
+                <!-- Controles -->
+                <button
+                    type="button"
+                    class="carousel-btn prev"
+                    id="prevSlide"
+                    aria-label="Slide anterior"
+                >
+                    ←
                 </button>
 
-                <button class="carousel-btn next" id="nextSlide" aria-label="Próxima imagem">
-                    ›
+                <button
+                    type="button"
+                    class="carousel-btn next"
+                    id="nextSlide"
+                    aria-label="Próximo slide"
+                >
+                    →
                 </button>
 
-                <div class="carousel-dots" id="carouselDots">
-                    <button class="dot active"></button>
-                    <button class="dot"></button>
-                    <button class="dot"></button>
+
+                <!-- Indicadores -->
+                <div
+                    class="carousel-dots"
+                    id="carouselDots"
+                    aria-label="Indicadores do carrossel"
+                >
+
+                    <button
+                        type="button"
+                        class="dot active"
+                        aria-label="Ir para slide 1"
+                    ></button>
+
+                    <button
+                        type="button"
+                        class="dot"
+                        aria-label="Ir para slide 2"
+                    ></button>
+
+                    <button
+                        type="button"
+                        class="dot"
+                        aria-label="Ir para slide 3"
+                    ></button>
+
                 </div>
 
             </div>
 
-        </section>
+        </div>
 
-        <!-- AJUDA -->
-        <section class="help-section">
+    </section>
 
-            <div class="help-icon">💬</div>
+
+    <!-- =====================================================
+         PORTAL DE ESCUTA / CTA
+    ====================================================== -->
+
+    <section class="help-section">
+
+        <div class="help-pattern"></div>
+
+        <div class="container help-container">
+
+
+            <div class="help-visual">
+
+                <div class="help-circle">
+
+                    <span class="help-main-icon">
+                        💬
+                    </span>
+
+                </div>
+
+                <span class="help-floating help-floating-one">
+                    ♥
+                </span>
+
+                <span class="help-floating help-floating-two">
+                    ✦
+                </span>
+
+                <span class="help-floating help-floating-three">
+                    🫶
+                </span>
+
+            </div>
+
 
             <div class="help-content">
 
-                <span class="section-label">VOCÊ NÃO ESTÁ SOZINHO</span>
+                <span class="section-kicker">
+                    <span></span>
+                    VOCÊ NÃO ESTÁ SOZINHO
+                </span>
 
                 <h2>
-                    Precisando conversar?
+                    Precisando
+                    <span>conversar?</span>
                 </h2>
 
                 <p>
                     Pedir ajuda é um ato de coragem. Se algo estiver
-                    causando medo, sofrimento, humilhação ou insegurança,
-                    converse com alguém de confiança.
+                    causando medo, sofrimento, humilhação ou
+                    insegurança, converse com alguém de confiança.
                 </p>
+
+
+                <div class="help-highlights">
+
+                    <div>
+                        <span>✓</span>
+                        <p>Seus sentimentos são importantes.</p>
+                    </div>
+
+                    <div>
+                        <span>✓</span>
+                        <p>Você merece ser respeitado.</p>
+                    </div>
+
+                    <div>
+                        <span>✓</span>
+                        <p>Você não precisa enfrentar tudo sozinho.</p>
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="escuta.html"
+                    class="btn btn-primary btn-large"
+                >
+                    <span>Ir para o Portal de Escuta</span>
+                    <span>→</span>
+                </a>
 
             </div>
 
-            <a href="escuta.html" class="btn btn-primary">
-                Ir para o Portal de Escuta →
-            </a>
+        </div>
 
-        </section>
+    </section>
 
-    </main>
 
-    <!-- FOOTER -->
-    <footer class="footer">
+    <!-- =====================================================
+         CTA FINAL
+    ====================================================== -->
+
+    <section class="final-cta">
+
+        <div class="container final-cta-container">
+
+            <div class="final-cta-decoration">
+                <span>✦</span>
+                <span>♥</span>
+                <span>✦</span>
+            </div>
+
+            <span class="section-kicker">
+                <span></span>
+                ACOLHE+
+            </span>
+
+            <h2>
+                Ser diferente
+                <span>é fazer parte.</span>
+            </h2>
+
+            <p>
+                Respeito, empatia e inclusão começam
+                com cada um de nós.
+            </p>
+
+            <div class="final-cta-buttons">
+
+                <a
+                    href="quiz.html"
+                    class="btn btn-primary"
+                >
+                    Fazer o quiz
+                    <span>→</span>
+                </a>
+
+                <a
+                    href="referencias.html"
+                    class="btn btn-outline"
+                >
+                    Conhecer referências
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="footer">
+
+    <div class="container">
 
         <div class="footer-main">
 
+
+            <!-- Marca -->
             <div class="footer-brand">
 
-                <a href="index.html" class="logo">
-                    <span class="logo-icon">+</span>
-                    <span>
-                        <strong>Acolhe<span>+</span></strong>
-                        <small>Portal de Apoio ao Estudante</small>
+                <a
+                    href="index.html"
+                    class="logo footer-logo"
+                    aria-label="Acolhe+ - Página inicial"
+                >
+
+                    <span class="logo-mark">
+                        <span>+</span>
                     </span>
+
+                    <span class="logo-text">
+                        <strong>
+                            Acolhe<span>+</span>
+                        </strong>
+
+                        <small>
+                            Portal de Apoio ao Estudante
+                        </small>
+                    </span>
+
                 </a>
+
 
                 <p>
                     Inclusão, respeito e acolhimento para construir
                     uma escola melhor para todos.
                 </p>
 
-            </div>
 
-            <div class="footer-links">
-
-                <h3>Explorar</h3>
-
-                <a href="index.html">Início</a>
-                <a href="escuta.html">Portal de Escuta</a>
-                <a href="quiz.html">Quiz</a>
-                <a href="referencias.html">Referências</a>
+                <div class="footer-message">
+                    <span>♥</span>
+                    <span>
+                        Cada pessoa importa.
+                    </span>
+                </div>
 
             </div>
 
-            <div class="footer-links">
 
-                <h3>Valores</h3>
+            <!-- Navegação -->
+            <div class="footer-column">
+
+                <h3>
+                    Explorar
+                </h3>
+
+                <a href="index.html">
+                    Início
+                </a>
+
+                <a href="escuta.html">
+                    Portal de Escuta
+                </a>
+
+                <a href="quiz.html">
+                    Quiz
+                </a>
+
+                <a href="referencias.html">
+                    Referências
+                </a>
+
+            </div>
+
+
+            <!-- Valores -->
+            <div class="footer-column">
+
+                <h3>
+                    Nossos valores
+                </h3>
 
                 <span>💛 Respeito</span>
                 <span>🌈 Diversidade</span>
@@ -466,22 +1267,61 @@
 
             </div>
 
+
+            <!-- Frase -->
+            <div class="footer-column footer-highlight">
+
+                <span class="footer-quote-mark">
+                    “
+                </span>
+
+                <p>
+                    Não precisamos ser iguais
+                    para caminhar juntos.
+                </p>
+
+            </div>
+
         </div>
+
 
         <div class="footer-bottom">
+
             <p>
-                © 2026 Acolhe+ — Projeto educacional sobre inclusão e respeito.
+                © 2026 <strong>Acolhe+</strong> —
+                Projeto educacional sobre inclusão e respeito.
             </p>
+
+            <div class="footer-bottom-links">
+                <span>Feito para estudantes</span>
+                <span>•</span>
+                <span>Inclusão para todos</span>
+            </div>
+
         </div>
 
-    </footer>
+    </div>
 
-    <!-- Botão voltar ao topo -->
-    <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo">
-        ↑
-    </button>
+</footer>
 
-    <script src="js/script.js"></script>
+
+<!-- =====================================================
+     VOLTAR AO TOPO
+====================================================== -->
+
+<button
+    type="button"
+    id="backToTop"
+    class="back-to-top"
+    aria-label="Voltar ao topo"
+>
+    <span>↑</span>
+</button>
+
+
+<!-- JavaScript -->
+<script src="js/script.js"></script>
+```
 
 </body>
 </html>
