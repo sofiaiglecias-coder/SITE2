@@ -1,10 +1,6 @@
-/* ==========================================================================
-   17. JAVASCRIPT - ACOLHE+ PORTAL INTERATIVO
-   ========================================================================== */
-
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* --- 1. MENU MOBILE (HAMBÚRGUER) --- */
+  /* --- 1. MENU MOBILE --- */
   const hamburgerBtn = document.getElementById('hamburger-btn');
   const navMenu = document.getElementById('nav-menu');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -15,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
       hamburgerBtn.setAttribute('aria-expanded', isOpen);
     });
 
-    // Fechar menu ao clicar em um item
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('open');
@@ -30,9 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnThemeToggle = document.getElementById('btn-theme-toggle');
   const btnContrastToggle = document.getElementById('btn-contrast-toggle');
 
-  let currentFontSize = 100; // Porcentagem
+  let currentFontSize = 100;
 
-  // Ajuste de fonte
   if (btnFontIncrease && btnFontDecrease) {
     btnFontIncrease.addEventListener('click', () => {
       if (currentFontSize < 130) {
@@ -42,14 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     btnFontDecrease.addEventListener('click', () => {
-      if (currentFontSize > 90) {
+      if (currentFontSize > 80) {
         currentFontSize -= 10;
         document.documentElement.style.fontSize = `${currentFontSize}%`;
       }
     });
   }
 
-  // Alternar Modo Escuro
   if (btnThemeToggle) {
     btnThemeToggle.addEventListener('click', () => {
       document.body.classList.remove('high-contrast');
@@ -57,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Alternar Alto Contraste
   if (btnContrastToggle) {
     btnContrastToggle.addEventListener('click', () => {
       document.body.classList.remove('dark-mode');
@@ -70,11 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const didYouKnowContent = document.getElementById('did-you-know-content');
 
   const curiosities = [
-    "Escolas inclusivas melhoram o desempenho acadêmico e social de TODOS os alunos, não apenas dos que possuem deficiências.",
-    "A empatia é uma habilidade socioemocional que pode ser exercitada diariamente através da escuta ativa e sem julgamentos.",
-    "O bullying diminui até 50% em escolas que adotam programas ativos de acolhimento e respeito às diferenças.",
-    "Diversidade de pensamento em equipes escolares aumenta em até 35% a capacidade de resolução de problemas.",
-    "No Brasil, o direito à educação inclusiva é garantido pela Lei Brasileira de Inclusão (LBI - Lei nº 13.146/2015)."
+    "Escolas inclusivas melhoram o desempenho acadêmico e social de todos os alunos.",
+    "A empatia pode ser desenvolvida e fortalecida com a prática diária de escuta ativa.",
+    "O bullying diminui significativamente em ambientes escolares que promovem o acolhimento constante.",
+    "A convivência com a diversidade estimula a criatividade e o pensamento crítico.",
+    "A Lei Brasileira de Inclusão garante o direito de todos a uma educação de qualidade."
   ];
 
   if (btnCuriosity && didYouKnowContent) {
@@ -84,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const randomIndex = Math.floor(Math.random() * curiosities.length);
         didYouKnowContent.innerHTML = `<p><strong>Fato:</strong> ${curiosities[randomIndex]}</p>`;
         didYouKnowContent.style.opacity = '1';
-      }, 300);
+      }, 200);
     });
   }
 
@@ -95,13 +87,13 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', () => {
       const answer = button.nextElementSibling;
       if (answer) {
-        answer.classList.toggle('hidden');
-        button.textContent = answer.classList.contains('hidden') ? 'Ver resposta' : 'Ocultar resposta';
+        const isHidden = answer.classList.toggle('hidden');
+        button.textContent = isHidden ? 'Ver resposta' : 'Ocultar resposta';
       }
     });
   });
 
-  /* --- 5. PORTAL DE ESCUTA (FORMULÁRIO E MENSAGENS) --- */
+  /* --- 5. PORTAL DE ESCUTA --- */
   const listeningForm = document.getElementById('listening-form');
   const formFeedback = document.getElementById('form-feedback');
   const btnMotivation = document.getElementById('btn-motivation');
@@ -112,8 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
     "Pedir ajuda é um ato de coragem, não de fraqueza. 🌈",
     "Você merece ser respeitado(a) exatamente como você é. 🫶",
     "Não tenha medo de conversar com alguém de confiança.",
-    "Suas diferenças fazem parte de quem você é e do seu valor.",
-    "Você não precisa enfrentar tudo sozinho(a). Conte conosco!"
+    "Suas diferenças fazem parte de quem você é.",
+    "Você não precisa enfrentar tudo sozinho(a)."
   ];
 
   if (listeningForm) {
@@ -123,16 +115,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const messageInput = document.getElementById('student-message');
       if (!messageInput.value.trim()) return;
 
-      // Animação de envio simulado
       formFeedback.classList.remove('hidden');
-      formFeedback.innerHTML = "<p>Enviando seu desabafo de forma segura...</p>";
+      formFeedback.innerHTML = "<p>Enviando...</p>";
 
       setTimeout(() => {
         formFeedback.innerHTML = `
-          <p><strong>Obrigado por compartilhar o que está sentindo.</strong> Você não precisa enfrentar tudo sozinho. Procure um adulto de confiança quando precisar. Seus sentimentos são importantes. 💛</p>
+          <p>Obrigado por compartilhar o que está sentindo. Você não precisa enfrentar tudo sozinho. Procure um adulto de confiança quando precisar. Seus sentimentos são importantes. 💛</p>
         `;
         listeningForm.reset();
-      }, 1000);
+      }, 600);
     });
   }
 
@@ -143,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const randomIndex = Math.floor(Math.random() * motivationalMessages.length);
         motivationDisplay.innerHTML = `<p>"${motivationalMessages[randomIndex]}"</p>`;
         motivationDisplay.style.opacity = '1';
-      }, 300);
+      }, 200);
     });
   }
 
@@ -178,12 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
     indicators.forEach((ind, i) => {
       ind.addEventListener('click', () => updateCarousel(i));
     });
-
-    // Troca automática a cada 5 segundos
-    setInterval(() => {
-      const nextIndex = (currentIndex + 1) % slides.length;
-      updateCarousel(nextIndex);
-    }, 5000);
   }
 
   /* --- 7. QUIZ INTERATIVO (EXATAMENTE 5 PERGUNTAS) --- */
@@ -194,47 +179,47 @@ document.addEventListener('DOMContentLoaded', () => {
         "Fazer piadas sobre as características de alguém.",
         "Excluir colegas que pensam diferente do grupo.",
         "Ouvir e respeitar a perspectiva e individualidade do outro.",
-        "Ignorar uma pessoa por conta da sua origem ou cultura."
+        "Ignorar uma pessoa por conta da sua origem."
       ],
       answer: 2
     },
     {
       question: "O que é Empatia?",
       options: [
-        "Concordar sempre com tudo o que os outros dizem.",
+        "Concordar com tudo o que os outros dizem.",
         "Tentar compreender os sentimentos e experiências de outra pessoa.",
         "Fazer as tarefas escolares pelos seus colegas.",
-        "Ignorar os sentimentos alheios para evitar conflitos."
+        "Ignorar os conflitos ao seu redor."
       ],
       answer: 1
     },
     {
       question: "O que caracteriza a inclusão escolar?",
       options: [
-        "Garantir que todos os alunos aprendam e participem juntos com igualdade de oportunidades.",
-        "Separar os alunos em turmas diferentes com base em suas características.",
-        "Tratar todos de forma idêntica sem considerar necessidades específicas.",
-        "Permitir a presença, mas sem adaptar as atividades pedagógicas."
+        "Garantir que todos participem juntos com oportunidades adequadas.",
+        "Separar os alunos em turmas com base em capacidades.",
+        "Tratar todos de forma exatamente idêntica sem adaptar necessidades.",
+        "Permitir a presença sem promover a participação."
       ],
       answer: 0
     },
     {
-      question: "O que você deve fazer ao presenciar uma situação de bullying ou exclusão?",
+      question: "O que fazer ao presenciar uma situação de bullying ou exclusão?",
       options: [
-        "Rir e compartilhar a situação com outros colegas.",
-        "Apoiar a pessoa excluída e avisar um adulto de confiança.",
-        "Não fazer nada e fingir que não viu para não se envolver.",
-        "Incentivar quem está praticando o bullying."
+        "Rir ou compartilhar a situação.",
+        "Apoiar a pessoa afetada e avisar um adulto de confiança.",
+        "Ignorar a situação completamente.",
+        "Incentivar as provocações."
       ],
       answer: 1
     },
     {
-      question: "Quando um estudante deve procurar ajuda da equipe pedagógica ou de um adulto de confiança?",
+      question: "Quando procurar ajuda na escola ou com um responsável?",
       options: [
-        "Apenas em emergências graves de saúde.",
-        "Sempre que se sentir inseguro, triste, humilhado ou precisar de orientação.",
-        "Nunca, pois deve resolver seus problemas emocionais sozinho.",
-        "Somente se for autorizado pelos colegas da turma."
+        "Somente em emergências médicas.",
+        "Sempre que sentir insegurança, medo, exclusão ou precisar de orientação.",
+        "Nunca, devendo guardar os problemas para si.",
+        "Apenas quando for orientado pelos colegas."
       ],
       answer: 1
     }
@@ -305,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentQuestionIndex < quizData.length - 1) {
       btnNextQuestion.classList.remove('hidden');
     } else {
-      setTimeout(showResults, 1200);
+      setTimeout(showResults, 1000);
     }
   }
 
@@ -342,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btnRestartQuiz.addEventListener('click', startQuiz);
   }
 
-  /* --- 8. MENSAGEM DO DIA (FRASE ALEATÓRIA) --- */
+  /* --- 8. FRASE DO DIA --- */
   const btnNewQuote = document.getElementById('btn-new-quote');
   const dailyQuoteText = document.getElementById('daily-quote-text');
 
@@ -350,8 +335,8 @@ document.addEventListener('DOMContentLoaded', () => {
     "A inclusão acontece quando se aprende com as diferenças e não com as igualdades.",
     "A empatia é a capacidade de enxergar o mundo com os olhos do outro.",
     "Ninguém é igual a ninguém, e é exatamente isso que nos torna incríveis.",
-    "Respeitar o próximo é reconhecer que todos têm o direito de ser quem são.",
-    "Uma escola inclusiva constrói uma sociedade mais justa para o amanhã."
+    "Respeitar o próximo é reconhecer o direito de cada um ser quem é.",
+    "Uma escola inclusiva constrói uma sociedade mais justa."
   ];
 
   if (btnNewQuote && dailyQuoteText) {
@@ -361,7 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const randomIndex = Math.floor(Math.random() * quotes.length);
         dailyQuoteText.textContent = `"${quotes[randomIndex]}"`;
         dailyQuoteText.style.opacity = '1';
-      }, 300);
+      }, 200);
     });
   }
 
